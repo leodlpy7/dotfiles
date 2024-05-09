@@ -5,6 +5,7 @@ in
 {
   imports = [
     (import "${home-manager}/nixos")
+    "../../config/hyprland/hyprland.conf"
   ];
 
   home-manager.users.leo ={
@@ -27,8 +28,8 @@ in
 
     # home manager
     programs.home-manager.enable = true;
-    # git
 
+    # git
     programs.git = {
       enable = true;
       userName = "Leonard Delpy";
