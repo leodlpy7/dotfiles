@@ -1,0 +1,123 @@
+{
+   "backlight": {
+     "device": "intel_backlight",
+     "format": "{icon} {percent}%",
+     "format-icons": [
+       "",
+       ""
+     ],
+     "min-length": 6,
+     "on-scroll-down": "brightnessctl set 1%-",
+     "on-scroll-up": "brightnessctl set 1%+"
+  },
+
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-charging": " {capacity}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "format-plugged": " {capacity}%",
+    "states": {
+      "critical": 20,
+      "good": 95,
+      "warning": 30
+    }
+  },
+
+  "clock": {
+    "format": " {:%R  %d/%m}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "cpu": {
+    "format": "{icon0}{icon1}{icon2}{icon3} {usage:>2}% ",
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ],
+    "interval": 1
+  },
+
+  "hyprland/window": {
+    "format": "<span font='9' rise='-4444'>{}</span>",
+    "max-length": 200,
+    "seperate-outputs": true
+  },
+  "hyprland/workspaces": {
+    "all-outputs": true,
+    "disable-scroll": true,
+    "on-click": "activate"
+  },
+
+  "memory": {
+    "format": "{used:0.1f}G/{total:0.1f}G ",
+    "interval": 30
+  }
+  ,
+  "network": {
+    "format": "{ifname}",
+    "format-disconnected": "",
+    "format-ethernet": " 󰈁 ",
+    "format-wifi": "{essid} "
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-icons": {
+      "car": "",
+      "default": [
+        "",
+        "",
+        ""
+      ],
+      "hands-free": "",
+      "headphone": "",
+      "headset": "",
+      "phone": "",
+      "portable": ""
+    },
+    "format-muted": " Muted",
+    "on-click": "pamixer -t",
+    "on-scroll-down": "pamixer -d 5",
+    "on-scroll-up": "pamixer -i 5",
+    "scroll-step": 5,
+    "tooltip": false
+  },
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": " Muted",
+    "on-click": "pamixer --default-source -t",
+    "on-scroll-down": "pamixer --default-source -d 5",
+    "on-scroll-up": "pamixer --default-source -i 5",
+    "scroll-step": 5
+  },
+
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{temperatureC}°C ",
+    "format-critical": "{temperatureC}°C ",
+    "hwmon-path": [
+      "/sys/class/hwmon/hwmon2/temp1_input",
+      "/sys/class/thermal/thermal_zone0/temp"
+    ],
+    "thermal-zone": 2
+  },
+
+  "tray": {
+    "icon-size": 13,
+    "spacing": 10
+  }
+}
