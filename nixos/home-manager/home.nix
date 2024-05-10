@@ -1,17 +1,24 @@
 { config, pkgs, ... }:
 let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+  home-manager = builtins.fetchTarball {
+    url = "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+    sha256 = "0sxdrx1chydigqpyg69ix7r61akvh39a0s5g6b3q1770aqkw6hp3";
+  };
 in
 {
   imports = [
     (import "${home-manager}/nixos")
-    "../../config/hyprland/hyprland.conf"
   ];
 
-  home-manager.users.leo ={
+  home-manager.users.leo = {
     home.stateVersion = "18.09";
     home.username = "leo";
     home.homeDirectory = "/home/leo";
+
+    # import other config files
+    imports = [
+      ./waybar.nix
+    ];
 
     # home packages
     home.packages = [
@@ -34,6 +41,15 @@ in
       enable = true;
       userName = "Leonard Delpy";
       userEmail = "leonard.delpy@gmail.com";
+    };
+
+    # config files
+    home.file = {
+      # hyprland config
+      ".config/hyprland" = {
+        source = ../../config/hyprland;
+        recursive = true;
+      };
     };
   };
 }

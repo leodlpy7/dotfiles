@@ -109,6 +109,7 @@
     git
     wl-clipboard
     home-manager
+    tree
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

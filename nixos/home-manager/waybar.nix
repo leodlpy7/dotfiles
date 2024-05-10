@@ -27,7 +27,7 @@ in {
           "pulseaudio"
           "pulseaudio#microphone"
         ];
-      }
+      };
     };
   };
 }
