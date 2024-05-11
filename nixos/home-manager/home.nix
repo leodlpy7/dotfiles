@@ -47,7 +47,7 @@ in
     home.file = {
       # hyprland config
       ".config/hypr" = {
-        source = ../../config/hyprland;
+        source = ../../config/hypr;
         recursive = true;
       };
 
