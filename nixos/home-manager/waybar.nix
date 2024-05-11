@@ -4,16 +4,18 @@ let
 in {
   home.file = {
     ".config/waybar/style.css".source = ../../config/waybar/style.css;
+    ".config/waybar/scripts".source = ../../config/waybar/scripts;
   };
 
   programs.waybar = {
     enable = true;
     settings = {
       mainBar = {
-        mod= "dock";
+        mod = "dock";
         modules-center = [];
         modules-left = [
           "clock"
+          "custom/weather"
           "hyprland/workspaces"
           "network"
         ];
