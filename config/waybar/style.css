@@ -46,6 +46,10 @@ tooltip {
     border-radius: 10px;
 }
 
+#custom-language,
+#custom-updates,
+#custom-caffeine,
+#custom-weather,
 #window,
 #clock,
 #battery,
@@ -56,8 +60,7 @@ tooltip {
 #cpu,
 #temperature,
 #memory,
-#backlight,
-#custom-agenda {
+#backlight {
     background: #1e1e2e;
     padding: 0px 10px;
     border: 1px solid #181825;
@@ -74,6 +77,31 @@ tooltip {
     margin-left: 10px;
     padding-right: 0px;
     padding-left: 5px;
+}
+
+#custom-caffeine {
+    color: #89dceb;
+    border-radius: 10px 0px 0px 10px;
+    border-right: 0px;
+    margin-left: 10px;
+}
+
+#custom-agenda {
+    border-radius: 10px;
+    margin-left: 5px;
+}
+
+#custom-language {
+    color: #f38ba8;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#custom-updates {
+    color: #f5c2e7;
+    border-radius: 10px 0px 0px 10px;
+    border-left: 0px;
+    border-right: 0px;
 }
 
 #window {
@@ -124,4 +152,10 @@ tooltip {
     border-radius: 0 10px 10px 0;
     margin-right: 10px;
     border-left: 0px;
+}
+
+#custom-weather {
+    border-radius: 0px 10px 10px 0px;
+    border-right: 0px;
+    margin-left: 0px;
 }

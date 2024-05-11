@@ -46,10 +46,13 @@ in
     # config files
     home.file = {
       # hyprland config
-      ".config/hyprland" = {
+      ".config/hypr" = {
         source = ../../config/hyprland;
         recursive = true;
       };
+
+      # kitty config
+      ".config/kitty".source = ../../config/kitty;
     };
   };
 }

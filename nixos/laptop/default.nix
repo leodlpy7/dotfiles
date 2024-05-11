@@ -111,6 +111,8 @@
     wl-clipboard
     home-manager
     tree
+    brightnessctl
+    (python312.withPackages (python-pkgs: [python-pkgs.requests]))
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
