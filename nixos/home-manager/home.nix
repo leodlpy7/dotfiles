@@ -22,10 +22,18 @@ in
 
     # home packages
     home.packages = [
+      pkgs.discord
+      pkgs.sl
       pkgs.noto-fonts
         pkgs.noto-fonts-emoji
         (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     ];
+
+    # neovim
+    programs.neovim.enable = true;
+    programs.neovim.defaultEditor = true;
+    programs.neovim.withPython3 = true;
+    programs.neovim.viAlias = true;
 
     # rofi
     programs.rofi = {
