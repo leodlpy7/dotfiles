@@ -24,6 +24,7 @@ in
     home.packages = [
       pkgs.discord
       pkgs.sl
+      pkgs.jetbrains.idea-ultimate
       pkgs.noto-fonts
         pkgs.noto-fonts-emoji
         (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
@@ -61,6 +62,12 @@ in
 
       # kitty config
       ".config/kitty".source = ../../config/kitty;
+
+      # fish config
+      ".config/fish" = {
+        source = ../../config/fish;
+	recursive = true;
+      };
     };
   };
 }

@@ -1,2 +1,4 @@
 
-.flake.nix.swp
+__pycache__/
+
+*.swp

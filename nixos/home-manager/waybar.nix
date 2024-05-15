@@ -29,7 +29,8 @@ in {
           "pulseaudio"
           "pulseaudio#microphone"
         ];
-      };
+      }
+      // sharedModules;
     };
   };
 }
