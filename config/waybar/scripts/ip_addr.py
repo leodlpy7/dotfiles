@@ -4,17 +4,34 @@ import requests
 import subprocess
 
 
+# check for a valid ipv4 address
+def valid_ip(address: str) -> bool:
+    try:
+        host_bytes = address.split(".")
+        valid = [int(b) for b in host_bytes]
+        valid = [b for b in valid if b >= 0 and b <= 255]
+        return len(host_bytes) == 4 and len(valid) == 4
+    except:
+        return False
+
+
 # gets the public ipv4 address of the device
 def get_ip_addr() -> str:
     out = subprocess.getoutput("curl api.ipify.org")
     # there are multiple lines as output
     out = out.split("\n")
     # the ip address is inside the last line
-    return out[-1]
+    ipv4 = out[-1]
+    # check if last line matches regex expr
+    if valid_ip(ipv4):
+        return ipv4
+    return ""
 
 
 # geolocate the ip address using external service
 def geolocate_ip(ip: str) -> dict:
+    if ip == "":
+        return {}
     url = "https://ipinfo.io/" + ip + "/json"
     data = requests.get(url).json()
     return data

@@ -79,7 +79,7 @@
     "format": "{ifname}",
     "format-disconnected": "",
     "format-ethernet": " 󰈁 ",
-    "format-wifi": "{essid} "
+    "format-wifi": "{essid} ({signalStrength}%) "
   },
 
   "pulseaudio": {

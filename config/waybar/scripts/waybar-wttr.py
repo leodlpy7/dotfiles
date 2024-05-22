@@ -3,6 +3,8 @@
 # standard library imports
 import json
 import requests
+import sys
+
 from datetime import datetime
 
 # custom imports
@@ -64,6 +66,11 @@ data = {}
 
 
 ipv4_addr = ip_addr.get_ip_addr()
+if ipv4_addr == "":
+    data["text"] = "No data available"
+    data["tooltip"] = "Weather client was not able to get the ip-address and therefore could not locate you and get correct weather information."
+    print(json.dumps(data))
+    sys.exit()
 city = ip_addr.extr_city(ip_addr.geolocate_ip(ipv4_addr), "Düsseldorf")
 
 weather = requests.get("https://wttr.in/" + city + "?format=j1").json()
