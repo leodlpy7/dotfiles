@@ -8,6 +8,7 @@ in
 {
   imports = [
     (import "${home-manager}/nixos")
+    ../share/programs.nix
   ];
 
   home-manager.users.leo = {
@@ -30,20 +31,14 @@ in
         (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     ];
 
-    # neovim
-    programs.neovim.enable = true;
-    programs.neovim.defaultEditor = true;
-    programs.neovim.withPython3 = true;
-    programs.neovim.viAlias = true;
+    # home manager
+    programs.home-manager.enable = true;
 
     # rofi
     programs.rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
     };
-
-    # home manager
-    programs.home-manager.enable = true;
 
     # git
     programs.git = {
