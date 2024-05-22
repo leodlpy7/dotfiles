@@ -36,5 +36,6 @@
     (python312.withPackages (python-pkgs: [python-pkgs.requests]))
     texliveFull
     hyprpaper
+    spotify
   ];
 }
