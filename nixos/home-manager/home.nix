@@ -31,6 +31,12 @@ in
         (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     ];
 
+    # neovim
+    programs.neovim.enable = true;
+    programs.neovim.defaultEditor = true;
+    programs.neovim.withPython3 = true;
+    programs.neovim.viAlias = true;
+
     # home manager
     programs.home-manager.enable = true;
 

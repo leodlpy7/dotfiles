@@ -6,11 +6,14 @@
 
   # system programs
   # hyprland
-  progtams.hyprland.enable = true;
+  programs.hyprland.enable = true;
   programs.hyprland.xwayland.enable = true;
 
   # firefox
   programs.firefox.enable = true;
+
+  # thunar file manager
+  programs.thunar.enable = true;
 
   # fish shell
   programs.fish.enable = true;
@@ -18,9 +21,9 @@
   users.defaultUserShell = pkgs.fish;
 
   # Packages installed to the system profile
-  environment.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     vim
-    nvim
+    neovim
     wget
     kitty
     rofi-wayland
@@ -32,5 +35,6 @@
     brightnessctl
     (python312.withPackages (python-pkgs: [python-pkgs.requests]))
     texliveFull
+    hyprpaper
   ];
 }
