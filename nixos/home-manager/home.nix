@@ -69,6 +69,12 @@ in
         source = ../../config/fish;
 	recursive = true;
       };
+
+      # nvim config
+      ".config/nvim" = {
+        source = ../../config/nvim;
+        recursive = true;
+      };
     };
   };
 }
