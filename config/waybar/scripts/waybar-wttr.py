@@ -123,7 +123,7 @@ for i, day in enumerate(weather['weather']):
     if i == 1:
         data['tooltip'] += "Tomorrow, "
     data['tooltip'] += "{}</b>\n".format(day['date'])
-    data['tooltip'] += "⬆️ {}K ⬇️ {}K ".format(celsius_to_kelvin(day['maxTempC']), celsius_to_kelvin(day['minTempC']))
+    data['tooltip'] += "⬆️ {}K ⬇️ {}K ".format(celsius_to_kelvin(day['maxtempC']), celsius_to_kelvin(day['mintempC']))
     data['tooltip'] += "🌅 {} 🌇 {}\n".format(day['astronomy'][0]['sunrise'], day['astronomy'][0]['sunset'])
     for hour in day['hourly']:
         if i == 0 and int(format_time(hour['time'])) < datetime.now().hour-2:
