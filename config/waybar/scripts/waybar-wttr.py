@@ -68,7 +68,7 @@ data = {}
 ipv4_addr = ip_addr.get_ip_addr()
 if ipv4_addr == "":
     data["text"] = "No data available"
-    data["tooltip"] = "Weather client was not able to get the ip-address and therefore could not locate you and get correct weather information."
+    data["tooltip"] = "Weather client was not able to get your position and could not load weather data."
     print(json.dumps(data))
     sys.exit()
 city = ip_addr.extr_city(ip_addr.geolocate_ip(ipv4_addr), "Düsseldorf")
@@ -112,22 +112,22 @@ data['text'] = weather['nearest_area'][0]['areaName'][0]['value'] + ": " + \
     WEATHER_CODES[weather['current_condition'][0]['weatherCode']] + \
     " "+celsius_to_kelvin(weather['current_condition'][0]['FeelsLikeC'])+"K" 
 
-data['tooltip'] = f"<b>{weather['current_condition'][0]['weatherDesc'][0]['value']} {celsius_to_kelvin(weather['current_condition'][0]['temp_C'])}K</b>\n"
-data['tooltip'] += f"Feels like: {celsius_to_kelvin(weather['current_condition'][0]['FeelsLikeC'])}K\n"
-data['tooltip'] += f"Wind: {weather['current_condition'][0]['windspeedKmph']}Km/h\n"
-data['tooltip'] += f"Humidity: {weather['current_condition'][0]['humidity']}%\n"
+data['tooltip']  = "<b>{} {}K</b>\n".format(weather['current_condition'][0]['weatherDesc'][0]['value'], celsius_to_kelvin(weather['current_condition'][0]['temp_C']))
+data['tooltip'] += "Feels like: {}K\n".format(celsius_to_kelvin(weather['current_condition'][0]['FeelsLikeC']))
+data['tooltip'] += "Wind: {}km/h\n".format(weather['current_condition'][0]['windspeedKmph'])
+data['tooltip'] += "Humidity: {}%\n".format(weather['current_condition'][0]['humidity'])
 for i, day in enumerate(weather['weather']):
-    data['tooltip'] += f"\n<b>"
+    data['tooltip'] += "\n<b>"
     if i == 0:
         data['tooltip'] += "Today, "
     if i == 1:
         data['tooltip'] += "Tomorrow, "
-    data['tooltip'] += f"{day['date']}</b>\n"
-    data['tooltip'] += f"⬆️ {celsius_to_kelvin(day['maxtempC'])}K ⬇️ {celsius_to_kelvin(day['mintempC'])}K "
-    data['tooltip'] += f"🌅 {day['astronomy'][0]['sunrise']} 🌇 {day['astronomy'][0]['sunset']}\n"
+    data['tooltip'] += "{}</b>\n".format(day['date'])
+    data['tooltip'] += "⬆️ {}K ⬇️ {}K ".format(celsius_to_kelvin(day['maxTempC']), celsius_to_kelvin(day['minTempC']))
+    data['tooltip'] += "🌅 {} 🌇 {}\n".format(day['astronomy'][0]['sunrise'], day['astronomy'][0]['sunset'])
     for hour in day['hourly']:
         if i == 0 and int(format_time(hour['time'])) < datetime.now().hour-2:
             continue
-        data['tooltip'] += f"{format_time(hour['time'])} {WEATHER_CODES[hour['weatherCode']]} {format_temp(hour['FeelsLikeC'])} {hour['weatherDesc'][0]['value']}, {format_chances(hour)}\n"
+        data['tooltip'] += "{} {} {} {}, {}\n".format(format_time(hour['time']), WEATHER_CODES[hour['weatherCode']], format_temp(hour['FeelsLikeC']), hour['weatherDesc'][0]['value'], format_chances(hour))
 
 print(json.dumps(data))
