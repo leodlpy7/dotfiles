@@ -10,6 +10,10 @@
 
   # thunar file manager
   programs.thunar.enable = true;
+  programs.thunar.plugins = with pkgs.xfce; [
+    thunar-archive-plugin
+    thunar-volman
+  ]; 
 
   # fish shell
   programs.fish.enable = true;
@@ -43,5 +47,7 @@
     hyprlock
     spotify
     wlogout
+    dracula-theme
+    nix-output-monitor
   ];
 }

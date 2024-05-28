@@ -11,6 +11,7 @@ in
     ../share/hypr.nix
     ../share/programs.nix
     ../share/security.nix
+    ../share/vars.nix
   ];
 
   home-manager.users.leo = {
