@@ -2,13 +2,15 @@
 let
   home-manager = builtins.fetchTarball {
     url = "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-    sha256 = "0sxdrx1chydigqpyg69ix7r61akvh39a0s5g6b3q1770aqkw6hp3";
+    sha256 = "1imp3945nfw0y53avnn2k1yk0079v8m52bz10daqna97v6f6cx47";
   };
 in
 {
   imports = [
     (import "${home-manager}/nixos")
+    ../share/hypr.nix
     ../share/programs.nix
+    ../share/security.nix
   ];
 
   home-manager.users.leo = {
@@ -25,10 +27,10 @@ in
     home.packages = [
       pkgs.discord
       pkgs.sl
-      pkgs.jetbrains.idea-ultimate
+      # pkgs.jetbrains.idea-ultimate
       pkgs.noto-fonts
-        pkgs.noto-fonts-emoji
-        (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+      pkgs.noto-fonts-emoji
+      (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     ];
 
     # neovim
@@ -67,7 +69,7 @@ in
       # fish config
       ".config/fish" = {
         source = ../../config/fish;
-	recursive = true;
+	      recursive = true;
       };
 
       # nvim config
