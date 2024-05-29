@@ -50,14 +50,6 @@
     "interval": 1
   },
 
-  "custom/weather": {
-    "exec": "python3 ~/.config/waybar/scripts/waybar-wttr.py",
-    "format": "{}",
-    "interval": 30,
-    "return-type": "json",
-    "tooltip": true
-  },
-
   "hyprland/window": {
     "format": "<span font='9' rise='-4444'>{}</span>",
     "max-length": 200,
