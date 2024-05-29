@@ -49,5 +49,6 @@
     wlogout
     dracula-theme
     nix-output-monitor
+    btop
   ];
 }
