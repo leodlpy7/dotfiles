@@ -50,5 +50,6 @@
     dracula-theme
     nix-output-monitor
     btop
+    starship
   ];
 }

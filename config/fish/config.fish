@@ -1,3 +1,6 @@
+# use starship for fish config
+starship init fish | source
+
 # fish greeting
 set fish_greeting
 
