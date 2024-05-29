@@ -12,6 +12,7 @@ in
     ../share/programs.nix
     ../share/security.nix
     ../share/vars.nix
+    ../share/starship.nix
   ];
 
   home-manager.users.leo = {
