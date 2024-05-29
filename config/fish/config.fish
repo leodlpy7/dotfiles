@@ -10,3 +10,4 @@ alias lla='ls -la'
 alias l='ls -CF'
 alias vim='nvim'
 alias vi='nvim'
+alias clear="clear && fish_greeting"
