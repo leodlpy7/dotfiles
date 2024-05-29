@@ -8,7 +8,7 @@
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, flake-utils }: {
-    nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.notnixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./nixos/laptop

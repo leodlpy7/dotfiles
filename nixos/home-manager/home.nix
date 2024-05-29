@@ -78,6 +78,9 @@ in
         source = ../../config/nvim;
         recursive = true;
       };
+
+      # swayidle config to automatically lock screen
+      ".config/swayidle/config".source = ../../config/swayidle/config;
     };
   };
 }
