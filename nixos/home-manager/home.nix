@@ -2,7 +2,7 @@
 let
   home-manager = builtins.fetchTarball {
     url = "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-    sha256 = "1imp3945nfw0y53avnn2k1yk0079v8m52bz10daqna97v6f6cx47";
+    sha256 = "1hn0fnrczpiccaiqrdil5zvr2hvxqnwa9nkfg5sd7prfjyjh8bay";
   };
 in
 {
