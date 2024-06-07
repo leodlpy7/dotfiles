@@ -20,7 +20,7 @@
   boot.supportedFilesystems = ["ntfs"];
 
   networking.hostName = "notnixos";
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";

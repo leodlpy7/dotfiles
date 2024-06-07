@@ -51,5 +51,8 @@
     nix-output-monitor
     btop
     starship
+    # java and intellij
+    jdk
+    jetbrains.idea-ultimate
   ];
 }

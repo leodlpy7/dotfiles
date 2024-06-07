@@ -1,0 +1,9 @@
+keys:
+  - &leo_gpg 28BEC0FBA04EF1C62EE7E8AC2DF66195F4417E4E
+  - &laptop 82387bf7cc73df6ea1718f4ea86a337947cb35e9
+creation_rules:
+  - path_regex: secrets/.*
+    key_groups:
+    - pgp:
+      - *leo_gpg
+      - *laptop

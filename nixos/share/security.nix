@@ -6,7 +6,15 @@
     swayidle
     swaylock-effects
     greetd.regreet
+    pinentry-qt
   ];
+
+  # gpg for security
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryPackage = pkgs.pinentry-qt;
+  };
 
   # important to allow swaylock to verify pwd
   security.pam.services.swaylock = {

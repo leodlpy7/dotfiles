@@ -12,6 +12,8 @@ in
     ../share/programs.nix
     ../share/security.nix
     ../share/vars.nix
+    ../share/wifi.nix
+    ../share/services.nix
   ];
 
   home-manager.users.leo = {
