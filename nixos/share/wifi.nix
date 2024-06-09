@@ -1,22 +1,31 @@
 { config, pkgs, sops, ... }:
 
 {
-   sops.secrets.wifi = {
-     format = "binary";
-     sopsFile = ../../secrets/wifi;
-   };
+  # where to find the secrets
+  sops.secrets.wifi = {
+    format = "binary";
+    sopsFile = ../../secrets/wifi;
+  };
 
-   networking.wireless.enable = true;
-   networking.wireless.userControlled.enable = true;
-   networking.wireless.environmentFile = /run/secrets/wifi;
+  networking.wireless.enable = true;
+  networking.wireless.userControlled.enable = true;
+  networking.wireless.environmentFile = /run/secrets/wifi;
 
-   networking.wireless.networks = {
-     HHUD-Y = {
-       psk = "@HHUD_Y_PSK@";
-       priority = 2;
-     };
+  networking.wireless.networks = {
+    # hotspot
+    Andromeda = {
+      psk = "@ANDROMEDA_PSK@";
+      priority = 1;
+    };
 
-     eduroam = let
+    # wifi fscs hhu
+    HHUD-Y = {
+      psk = "@HHUD_Y_PSK@";
+      priority = 2;
+    };
+
+    # hhu eduroam
+    eduroam = let
       cacert = builtins.toFile "ca_cert.pam" "-----BEGIN CERTIFICATE-----
 MIIDwzCCAqugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBgjELMAkGA1UEBhMCREUx
 KzApBgNVBAoMIlQtU3lzdGVtcyBFbnRlcnByaXNlIFNlcnZpY2VzIEdtYkgxHzAd
@@ -54,6 +63,23 @@ BSeOE6Fuwg==
          password="@EDUROAM_PASSWORD@"
          anonymous_identity="eduroam@hhu.de"
       '';
+    };
+
+    # wifi wohnheim
+    PWiFi = {
+      psk = "@PWiFi_PSK@";
+      priority = 5;
+    };
+
+    # at home
+    tohuus = {
+      psk = "@TOHUUS_PSK@";
+      priority = 5;
+    };
+
+    "LevelOne-2.4G" = {
+      psk = "@LEVELONE_2_4G";
+      priority = 5;
     };
   };
 }
