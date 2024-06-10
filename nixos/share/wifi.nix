@@ -24,6 +24,11 @@
       priority = 2;
     };
 
+    LambdaAufDemEFeld = {
+      psk = "@LAMBDA_AUF_DEM_E_FELD_PSK@";
+      priority = 2;
+    };
+
     # hhu eduroam
     eduroam = let
       cacert = builtins.toFile "ca_cert.pam" "-----BEGIN CERTIFICATE-----
