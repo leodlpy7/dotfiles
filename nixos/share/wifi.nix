@@ -21,12 +21,12 @@
     # wifi fscs hhu
     HHUD-Y = {
       psk = "@HHUD_Y_PSK@";
-      priority = 2;
+      priority = 3;
     };
 
     LambdaAufDemEFeld = {
       psk = "@LAMBDA_AUF_DEM_E_FELD_PSK@";
-      priority = 2;
+      priority = 3;
     };
 
     # hhu eduroam
@@ -55,7 +55,7 @@ g1XqfMIpiRvpb7PO4gWEyS8+eIVibslfwXhjdFjASBgMmTnrpMwatXlajRWc2BQN
 BSeOE6Fuwg==
 -----END CERTIFICATE-----";
     in {
-       priority = 1;
+       priority = 2;
        auth = ''
          key_mgmt=WPA-EAP
          pairwise=CCMP
@@ -68,6 +68,11 @@ BSeOE6Fuwg==
          password="@EDUROAM_PASSWORD@"
          anonymous_identity="eduroam@hhu.de"
       '';
+    };
+
+    # hhu guest wifi
+    HHU-Gast = {
+      priority = 1;
     };
 
     # wifi wohnheim
