@@ -76,10 +76,10 @@ in
       };
 
       # nvim config
-      ".config/nvim" = {
-        source = ../../config/nvim;
-        recursive = true;
-      };
+      # ".config/nvim" = {
+      #   source = ../../config/nvim;
+      #   recursive = true;
+      # };
 
       # swayidle config to automatically lock screen
       ".config/swayidle/config".source = ../../config/swayidle/config;
