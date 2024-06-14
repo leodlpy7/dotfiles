@@ -1,16 +1,4 @@
 {
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon} {percent}%",
-    "format-icons": [
-      "",
-      ""
-    ],
-    "min-length": 6,
-    "on-scroll-down": "brightnessctl set 1%-",
-    "on-scroll-up": "brightnessctl set 1%+"
-  },
-
   "battery": {
     "format": "{icon} {capacity}%",
     "format-alt": "{time} {icon}",
@@ -31,8 +19,11 @@
   },
 
   "clock": {
-    "format": " {:%R  %d/%m}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    "format": " {:%a, %d %b, %I:%M %p}",
+    "tooltip": "true",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": " {:%d/%m}",
+    "on-click": "${calendar}"
   },
 
   "cpu": {

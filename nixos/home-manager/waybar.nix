@@ -13,19 +13,19 @@ in {
         mod = "dock";
         modules-center = [];
         modules-left = [
-          "clock"
-          "hyprland/workspaces"
-          "network"
+	  # next to come: playerctl with back/play/pause/forward and artist/title
+	  "pulseaudio"
+	  "pulseaudio#microphone"
         ];
         modules-right = [
-          "tray"
+	  "tray"
+	  "hyprland/workspaces"
           "cpu"
           "temperature"
           "memory"
           "battery"
-          "backlight"
-          "pulseaudio"
-          "pulseaudio#microphone"
+	  "network"
+	  "clock"
         ];
       }
       // sharedModules;
