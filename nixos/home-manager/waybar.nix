@@ -11,15 +11,16 @@ in {
     settings = {
       mainBar = {
         mod = "dock";
-        modules-center = [];
         modules-left = [
 	  # next to come: playerctl with back/play/pause/forward and artist/title
 	  "pulseaudio"
 	  "pulseaudio#microphone"
         ];
+	modules-center = [
+	  "hyprland/workspaces"
+	];
         modules-right = [
 	  "tray"
-	  "hyprland/workspaces"
           "cpu"
           "temperature"
           "memory"
