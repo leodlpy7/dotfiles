@@ -82,13 +82,13 @@ BSeOE6Fuwg==
     };
 
     # at home
-    tohuus = {
+    "to huus" = {
       psk = "@TOHUUS_PSK@";
       priority = 5;
     };
 
     "LevelOne-2.4G" = {
-      psk = "@LEVELONE_2_4G";
+      psk = "@LEVELONE_2_4G_PSK";
       priority = 5;
     };
   };
