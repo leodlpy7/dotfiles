@@ -43,8 +43,6 @@
     brightnessctl
     (python312.withPackages (python-pkgs: [python-pkgs.requests]))
     texliveFull
-    hyprpaper
-    hyprlock
     spotify
     wlogout
     dracula-theme

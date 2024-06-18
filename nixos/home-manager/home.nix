@@ -88,15 +88,6 @@ in
 	      recursive = true;
       };
 
-      # nvim config
-      # ".config/nvim" = {
-      #   source = ../../config/nvim;
-      #   recursive = true;
-      # };
-
-      # swayidle config to automatically lock screen
-      ".config/swayidle/config".source = ../../config/swayidle/config;
-
       # starshop config to customize fish prompt
       ".config/starship.toml".source = ../../config/starship.toml;
     };

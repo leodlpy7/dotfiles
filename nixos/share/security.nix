@@ -3,8 +3,8 @@
 {
   # security related pkgs
   environment.systemPackages = with pkgs; [
-    swayidle
-    swaylock-effects
+    hyprlock
+    hypridle
     greetd.regreet
     pinentry-qt
   ];
@@ -16,8 +16,8 @@
     pinentryPackage = pkgs.pinentry-qt;
   };
 
-  # important to allow swaylock to verify pwd
-  security.pam.services.swaylock = {
+  # important to allow hyprlock to verify pwd
+  security.pam.services.hyprlock = {
     text = ''
       auth sufficient pam_fprintd.so
       auth include login
