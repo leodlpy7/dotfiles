@@ -58,6 +58,19 @@ in
       userEmail = "leonard.delpy@gmail.com";
     };
 
+    # gtk configuration
+    gtk = {
+      enable = true;
+      theme = {
+        name = "Dracula";
+        package = pkgs.materia-theme;
+      };
+      iconTheme = {
+        package = pkgs.gnome.adwaita-icon-theme;
+        name = "adwaita-icon-theme";
+      };
+    };
+
     # config files
     home.file = {
       # hyprland config
