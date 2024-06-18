@@ -16,7 +16,7 @@ This is the nixOS configuration on my machine.
   - [ ] kitty
   - [ ] waybar
 - [ ] restructure nix configuration
-- [ ] put background into dotfiles
+- [x] put background into dotfiles
 - [x] swaylock/swayidle to hyprlock
 - [x] gtk config
 - [ ] qt config
@@ -25,21 +25,27 @@ This is the nixOS configuration on my machine.
 
 I use this packages (the list does not assume to be complete):
 
-- blueman
-- btop
-- discord
-- firefox
-- fish
-- git
-- hypr
-  - hyprland
-  - hyprlock
-  - hypridle
-  - hyprpaper
-- intellij
-- jdk
-- kitty
-- nvim
-- rofi
-- spotify
-- thunar
+- `blueman`
+- `btop`
+- `discord`
+- `firefox`
+- `fish`
+- `git`
+- `greetd`
+- `hypr`
+  - `hyprland`
+  - `hyprlock`
+  - `hypridle`
+  - `hyprpaper`
+- `intellij`
+- `jdk`
+- `kitty`
+- `nvim`
+- `regreet`
+- `rofi`
+- `spotify`
+- `thunar`
+
+## Background wallpaper
+
+The background wallpaper is now inside the configuration, but unfortunately, greetd requires the background to be in `/etc/greetd/`. To use this configuration, you have to copy the background to `/etc/greetd/` to make greetd look pleasantly.
