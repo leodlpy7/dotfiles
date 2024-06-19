@@ -7,14 +7,14 @@ This is the nixOS configuration on my machine.
 
 - [ ] modify waybar config
   - [ ] add music player
-  - [ ] change to nix
-  - [ ] change appearance
+  - [x] change to nix
+  - [x] change appearance
 - [ ] config files to nix config
   - [ ] hyprland
   - [ ] fish
   - [ ] starship
   - [ ] kitty
-  - [ ] waybar
+  - [x] waybar
 - [ ] restructure nix configuration
 - [x] put background into dotfiles
 - [x] swaylock/swayidle to hyprlock
