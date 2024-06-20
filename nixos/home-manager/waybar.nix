@@ -50,11 +50,11 @@ in {
         "hyprland/workspaces"
       ];
       modules-right = [
-        "cpu"
-        "temperature"
-        "memory"
-        "battery"
         "network"
+	"battery"
+	"cpu"
+	"temperature"
+	"memory"
         "clock"
       ];
       # add music player settings later
@@ -159,9 +159,10 @@ in {
       network = {
         format-wifi = " {signalStrength}%";
         format-ethernet = "󰈀 ";
-        tooltip-format = " {essid} ({signalStrength}%)";
         format-linked = "{ifname} (No IP)";
         format-disconnected = "󰖪 ";
+        tooltip-format-disconnected = "󰖪 Disconnected";
+        tooltip-format = " {essid} ({signalStrength}%)";
       };
       # clock settings
       clock = {
@@ -193,20 +194,49 @@ in {
 	border-color: #${palette.secondary_background_hex};
       }
 
-      #pulseaudio, #backlight, #tray {
+      #pulseaudio {
+        color: #${palette.tertiary_accent};
+	background: #${palette.tertiary_background_hex};
+	font-weight: bold;
+	margin: 5px 0px;
+	border-radius: 24px 0px 0px 10px;
+	padding: 0px 8px 0px 20px;
+      }
+
+      #pulseaudio.microphone {
+        color: #${palette.tertiary_accent};
+	background: #${palette.tertiary_background_hex};
+	font-weight: bold;
+	margin: 5px 0px;
+	border-radius: 0px 10px 24px 0px;
+	padding: 0px 20px 0px 8px;
+	margin-left: 0px;
+      }
+
+      #backlight {
         color: #${palette.tertiary_accent};
 	background: #${palette.tertiary_background_hex};
 	font-weight: bold;
 	margin: 5px 0px;
 	border-radius: 24px 10px 24px 10px;
-	padding: 0 20px;
+	padding: 0px 20px;
+	margin-left: 7px;
+      }
+
+      #tray {
+        color: #${palette.tertiary_accent};
+	background: #${palette.tertiary_background_hex};
+	font-weight: bold;
+	margin: 5px 0px;
+	border-radius: 24px 10px 24px 10px;
+	padding: 0px 20px;
 	margin-left: 7px;
       }
 
       #workspaces {
         background: #${palette.tertiary_background_hex};
         border-radius: 16px;
-	margin: 5px 5px;
+
 	padding: 8px 5px;
         color: #${palette.primary_accent};
       }
@@ -232,14 +262,42 @@ in {
         border-radius: 16px;
       }
 
-      #network, #battery, #cpu, #memory, #temperature {
+      #network, #battery {
         color: #${palette.tertiary_accent};
         background: #${palette.tertiary_background_hex};
         font-weight: bold;
         margin: 5px 0px;
         border-radius: 10px 24px 10px 24px;
-        padding: 0 20px;
+        padding: 0px 20px;
         margin-left: 7px;
+      }
+
+      #cpu {
+        color: #${palette.tertiary_accent};
+	background: #${palette.tertiary_background_hex};
+	font-weight: bold;
+	margin: 5px 0px;
+	border-radius: 10px 0px 0px 24px;
+	padding: 0px 8px 0px 20px;
+	margin-left: 7px;
+      }
+
+      #temperature {
+        color: #${palette.tertiary_accent};
+	background: #${palette.tertiary_background_hex};
+	font-weight: bold;
+	margin: 5px 0px;
+	border-radius: 0px 0px 0px 0px;
+	padding: 0px 8px 0px 8px;
+      }
+
+      #memory {
+        color: #${palette.tertiary_accent};
+	background: #${palette.tertiary_background_hex};
+	font-weight: bold;
+	margin: 5px 0px;
+	border-radius: 0px 24px 10px 0px;
+	padding: 0px 20px 0px 8px;
       }
 
       #clock {
