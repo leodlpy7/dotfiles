@@ -12,7 +12,7 @@ This is the nixOS configuration on my machine.
 - [ ] config files to nix config
   - [ ] hyprland
   - [ ] fish
-  - [ ] starship
+  - [x] starship
   - [ ] kitty
   - [x] waybar
 - [ ] restructure nix configuration

@@ -24,6 +24,7 @@ in
     # import other config files
     imports = [
       ./waybar.nix
+      ../../config/starship.nix
     ];
 
     # home packages
@@ -85,11 +86,8 @@ in
       # fish config
       ".config/fish" = {
         source = ../../config/fish;
-	      recursive = true;
+	recursive = true;
       };
-
-      # starshop config to customize fish prompt
-      ".config/starship.toml".source = ../../config/starship.toml;
     };
   };
 }
