@@ -1,23 +1,28 @@
 { config, pkgs, libs, ... }:
 
-{
+let
+  user_color = "#3B4252";
+  dir_color = "#434C5E";
+  git_color = "#8A24AA";
+  time_color = "#B117C3";
+in {
   # enable starship to personalize fish prompt
   programs.starship.enable = true;
   # confiugre prompt with starship
   programs.starship.settings = {
-    format = "[](#3B4252)$username[](bg:#434C5E fg:#3B4252)$directory[](fg:#434C5E bg:#4C566A)$git_branch$git_status$git_commit[](fg:#4C566A bg:#86BBD8)$c$java$python[](fg:#86BBD8 bg:#06969A)$docker_context[](fg:#06969A bg:#33658A)$time[ ](fg:#33658A)";
+    format = "[](${user_color})$username[](fg:${user_color} bg:${dir_color})$directory[](fg:${dir_color} bg:${git_color})$git_branch$git_status$git_commit[](fg:${git_color} bg:${time_color})$time[ ](fg:${time_color})";
     # set command timeout
     command_timeout = 5000;
     # user name configuration
     username = {
       show_always = true;
-      style_user = "bg:#3b4252";
-      style_root = "bg:#3b4252";
+      style_user = "bg:${user_color}";
+      style_root = "bg:${user_color}";
       format = "[ $user ]($style)";
     };
     # directory configuration
     directory = {
-      style = "bg:#434c5e";
+      style = "bg:${dir_color}";
       truncation_length = 3;
       truncation_symbol = "…/";
       format = "[ $path ]($style)";
@@ -34,42 +39,24 @@
     # git configuration
     git_branch = {
       symbol = " ";
-      style = "bg:#4c566a";
+      style = "bg:${git_color}";
       format = "[ $symbol $branch ]($style)";
     };
     git_status = {
-      style = "bg:#4c566a";
+      style = "bg:${git_color}";
       format = "[ $all_status $ahead_behind ]($style)";
     };
     git_commit = {
-      style = "bg:#4c566a";
+      style = "bg:${git_color}";
       format = "[ $hash$tag ]($style)";
       commit_hash_length = 7;
       only_detached = false;
-    };
-    # java configuration
-    java = {
-      symbol = " ";
-      style = "fg:#06969a bg:#86bbd8";
-      format = "[ $symbol ]($style)";
-    };
-    # python configuration
-    python = {
-      symbol = " ";
-      style = "fg:#06969a bg:#86bbd8";
-      format = "[ $symbol ]($style)";
-    };
-    # c configuration
-    c = {
-      symbol = " ";
-      style = "fg:06969a bg:#86bbd8";
-      format = "[ $symbol ]($style)";
     };
     # add time at the end of the prompt
     time = {
       disabled = false;
       time_format = "%R"; # hh:mm
-      style = "bg:#33658a";
+      style = "bg:${time_color}";
       format = "[ $time ]($style)";
     };
   };
