@@ -27,6 +27,8 @@ let
     tertiary_background_rgba = "rgba(33, 37, 43, ${opacity})";
 
     critical = "rgba(255, 0, 0, ${opacity})";
+
+    button_active_color = "b117c3";
   };
 in {
   programs.waybar = {
@@ -250,7 +252,7 @@ in {
       }
 
       #workspaces button.active {
-        background-color: #${palette.secondary_accent};
+        background-color: #${palette.button_active_color};
         color: #${palette.background};
         border-radius: 16px;
 	transition: all 0.3s ease-in-out;
