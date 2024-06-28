@@ -6,11 +6,12 @@ configuration{
     terminal: "kitty";
     drun-display-format: "{icon} {name}";
     location: 0;
-    disable-history: false;
+    disable-history: true;
     hide-scrollbar: true;
     display-drun: "   Apps ";
     sidebar-mode: true;
     border-radius: 10;
+    no-levenshtein-sort: true;
 }
 
 @theme "~/.config/rofi/themes/catppuccin-macchiato.rasi"
