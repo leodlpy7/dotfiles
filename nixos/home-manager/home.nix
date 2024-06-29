@@ -24,7 +24,7 @@ in
     # import other config files
     imports = [
       ./waybar.nix
-      ../../config/starship.nix
+      ./programs/starship.nix
     ];
 
     # home packages
@@ -86,6 +86,12 @@ in
       # fish config
       ".config/fish" = {
         source = ../../config/fish;
+	recursive = true;
+      };
+
+      # rofi config
+      ".config/rofi" = {
+        source = ../../config/rofi;
 	recursive = true;
       };
     };
