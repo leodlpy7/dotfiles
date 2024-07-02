@@ -14,7 +14,11 @@
       modules = [
         sops-nix.nixosModules.sops
         ./nixos/laptop
-        ./nixos/home-manager/home.nix
+	home-manager.nixosModules.home-manager {
+	  home-manager.useGlobalPkgs = true;
+	  home-manager.useUserPackages = true;
+	  home-manager.users.leo = import ./nixos/home-manager/home.nix;
+	}
       ];
     };
     devShells."x86_64-linux".default = with import nixpkgs {system = "x86_64-linux";};

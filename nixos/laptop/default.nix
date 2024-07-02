@@ -2,6 +2,12 @@
 
 {
   imports = [
+    ../share/vars.nix
+    ../share/programs.nix
+    ../share/security.nix
+    ../share/hypr.nix
+    ../share/wifi.nix
+    ../share/services.nix
     ./hardware-configuration.nix
   ];
 
