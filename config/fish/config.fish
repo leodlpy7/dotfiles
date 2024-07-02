@@ -5,12 +5,11 @@ starship init fish | source
 set fish_greeting
 
 # set cmd aliases
-alias tree="tree --dirsfirst"
-alias ls='ls --color=auto'
-alias ll='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias l='ls -CF'
-alias vim='nvim'
-alias vi='nvim'
+alias tree="eza --tree --group-directories-first"
+alias ls="eza"
+alias ll="eza -l"
+alias la="eza -a"
+alias lla="eza -la --group"
+alias vim="nvim"
+alias vi="nvim"
 alias clear="clear && cd ~ && fish_greeting"

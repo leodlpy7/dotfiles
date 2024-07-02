@@ -37,9 +37,10 @@
     rofi-wayland
     waybar
     git
+    eza
+    ripgrep
     wl-clipboard
     home-manager
-    tree
     brightnessctl
     (python312.withPackages (python-pkgs: [python-pkgs.requests]))
     texliveFull
