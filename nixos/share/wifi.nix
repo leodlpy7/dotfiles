@@ -24,9 +24,16 @@
       priority = 3;
     };
 
+    # wifi fsphy hhu
     LambdaAufDemEFeld = {
       psk = "@LAMBDA_AUF_DEM_E_FELD_PSK@";
       priority = 3;
+    };
+
+    # wifi printer fsnawi
+    DIRECT-OIMFC-L2710DW_BR8d6f = {
+      psk = "@PRINTER_FSNAWI@";
+      priority = 1;
     };
 
     # hhu eduroam
