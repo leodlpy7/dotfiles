@@ -2,12 +2,15 @@
 
 {
   imports = [
-    ../share/vars.nix
-    ../share/programs.nix
-    ../share/security.nix
-    ../share/hypr.nix
-    ../share/wifi.nix
-    ../share/services.nix
+    # public configs, not related to home manager
+    ../../share/vars.nix
+    ../../share/programs.nix
+    ../../share/security.nix
+    ../../share/hypr.nix
+    ../../share/wifi.nix
+    ../../share/services.nix
+
+    # never forget to load the hardware config
     ./hardware-configuration.nix
   ];
 
@@ -25,7 +28,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = ["ntfs"];
 
-  networking.hostName = "notnixos";
+  networking.hostName = "amaterasu";
   
   # Set your time zone.
   time.timeZone = "Europe/Berlin";

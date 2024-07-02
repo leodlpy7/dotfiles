@@ -10,7 +10,7 @@
 
   outputs = inputs @ { self, nixpkgs, home-manager, flake-utils, sops-nix }: {
     # nixos config for my laptop
-    nixosConfigurations.notnixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.amaterasu = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         sops-nix.nixosModules.sops
