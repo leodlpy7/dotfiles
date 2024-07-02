@@ -1,5 +1,5 @@
 {
-  description = "laptop nixos configuration";
+  description = "NixOS configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -9,18 +9,20 @@
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, flake-utils, sops-nix }: {
+    # nixos config for my laptop
     nixosConfigurations.notnixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         sops-nix.nixosModules.sops
-        ./nixos/laptop
+        ./machines/laptop
 	home-manager.nixosModules.home-manager {
 	  home-manager.useGlobalPkgs = true;
 	  home-manager.useUserPackages = true;
-	  home-manager.users.leo = import ./nixos/home-manager/home.nix;
+	  home-manager.users.leo = import ./home-manager/home.nix;
 	}
       ];
     };
+    # developer shell stuff
     devShells."x86_64-linux".default = with import nixpkgs {system = "x86_64-linux";};
     mkShell {
       sopsPGPKeyDirs = [

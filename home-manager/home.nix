@@ -60,22 +60,22 @@
   home.file = {
     # hyprland config
     ".config/hypr" = {
-      source = ../../config/hypr;
+      source = ../config/hypr;
       recursive = true;
     };
 
     # kitty config
-    ".config/kitty".source = ../../config/kitty;
+    ".config/kitty".source = ../config/kitty;
 
     # fish config
     ".config/fish" = {
-      source = ../../config/fish;
+      source = ../config/fish;
       recursive = true;
     };
 
     # rofi config
     ".config/rofi" = {
-      source = ../../config/rofi;
+      source = ../config/rofi;
       recursive = true;
     };
   };

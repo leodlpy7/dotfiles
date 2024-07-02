@@ -13,8 +13,8 @@
   home-manager.users."leo" = {
     # load config files
     home.file = {
-      ".config/hypr/hyprlock.conf".source = ../../config/hypr/hyprlock.conf;
-      ".config/hypr/hypridle.conf".source = ../../config/hypr/hypridle.conf;
+      ".config/hypr/hyprlock.conf".source = ../config/hypr/hyprlock.conf;
+      ".config/hypr/hypridle.conf".source = ../config/hypr/hypridle.conf;
     };
   };
 }

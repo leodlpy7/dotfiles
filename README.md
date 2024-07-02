@@ -15,7 +15,7 @@ This is the nixOS configuration on my machine.
   - [x] starship
   - [ ] kitty
   - [x] waybar
-- [ ] restructure nix configuration
+- [x] restructure nix configuration
 - [x] put background into dotfiles
 - [x] swaylock/swayidle to hyprlock
 - [x] gtk config
@@ -78,7 +78,7 @@ The background wallpaper is now inside the configuration, but unfortunately, `gr
 |                           |                                              |
 | `SUPER 1`                 | go to workspace 1                            |
 | ...                       | ...                                          |
-| `SUPER 9                  | go to workspace 9                            |
+| `SUPER 9`                 | go to workspace 9                            |
 | `SUPER 0`                 | go to workspace 10                           |
 |                           |                                              |
 | `SUPER SHIFT 1`           | move active window to workspace 1            |
