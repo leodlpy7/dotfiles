@@ -9,6 +9,11 @@
   imports = [
     ./waybar.nix
     ./programs/starship.nix
+
+    ./programs/hyprland.nix
+    ./programs/hyprlock.nix
+    ./services/hypridle.nix
+    ./services/hyprpaper.nix
   ];
 
   # home packages

@@ -6,7 +6,7 @@
     ../../share/vars.nix
     ../../share/programs.nix
     ../../share/security.nix
-    ../../share/hypr.nix
+    ../../share/hyprland.nix
     ../../share/wifi.nix
     ../../share/services.nix
 

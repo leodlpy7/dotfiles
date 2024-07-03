@@ -1,7 +1,7 @@
 
 # dotfiles - NixOS configuration
 
-This is the nixOS configuration on my machine.
+This is the nixos configuration for my systems. I am using a flake to manage multiple devices, but by now, there is only my laptop with hostname `amaterasu` registered.
 
 ## ToDo's
 
@@ -10,7 +10,7 @@ This is the nixOS configuration on my machine.
   - [x] change to nix
   - [x] change appearance
 - [ ] config files to nix config
-  - [ ] hyprland
+  - [x] hyprland
   - [ ] fish
   - [x] starship
   - [ ] kitty
@@ -28,6 +28,7 @@ I use this packages (the list does not assume to be complete):
 - `blueman`
 - `btop`
 - `discord`
+- `eza`
 - `firefox`
 - `fish`
 - `git`
@@ -60,8 +61,8 @@ The background wallpaper is now inside the configuration, but unfortunately, `gr
 | `SUPER R`                 | execute `rofi`                               |
 | `Super W`                 | execute `firefox` to search the web          |
 | `SUPER T`                 | execute `thunar`, the file manager           |
-| `SUPER F`                 | make active window fullscreen                |
-| `SUPER SHIFT F`           | toggle fullscreen                            |
+| `SUPER F`                 | maximize active window                       |
+| `SUPER SHIFT F`           | make active window fullscreen                |
 | `SUPER ALT L`             | lock the screen                              |
 | `SUPER M`                 | open logout menu                             |
 | `SUPER B`                 | open `btop` in special workspace             |
