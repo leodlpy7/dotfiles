@@ -10,7 +10,7 @@ in {
   programs.starship.enable = true;
   # confiugre prompt with starship
   programs.starship.settings = {
-    format = "[](${user_color})$username[](fg:${user_color} bg:${dir_color})$directory[](fg:${dir_color} bg:${git_color})$git_branch$git_status$git_commit[](fg:${git_color} bg:${time_color})$time[ ](fg:${time_color})";
+    format = "[](${user_color})$username[](fg:${user_color} bg:${dir_color})$directory[](fg:${dir_color} bg:${git_color})$git_branch$git_status[](fg:${git_color} bg:${time_color})$time[ ](fg:${time_color})";
     # set command timeout
     command_timeout = 5000;
     # user name configuration
@@ -45,12 +45,6 @@ in {
     git_status = {
       style = "bg:${git_color}";
       format = "[ $all_status $ahead_behind ]($style)";
-    };
-    git_commit = {
-      style = "bg:${git_color}";
-      format = "[ $hash$tag ]($style)";
-      commit_hash_length = 7;
-      only_detached = false;
     };
     # add time at the end of the prompt
     time = {
