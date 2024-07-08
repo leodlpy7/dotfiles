@@ -3,12 +3,12 @@
 {
   imports = [
     # public configs, not related to home manager
-    ../../share/vars.nix
-    ../../share/programs.nix
-    ../../share/security.nix
-    ../../share/hyprland.nix
-    ../../share/wifi.nix
-    ../../share/services.nix
+    ../share/vars.nix
+    ../share/programs.nix
+    ../share/security.nix
+    ../share/hyprland.nix
+    ../share/wifi.nix
+    ../share/services.nix
 
     # never forget to load the hardware config
     ./hardware-configuration.nix

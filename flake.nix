@@ -14,7 +14,7 @@
       system = "x86_64-linux";
       modules = [
         sops-nix.nixosModules.sops
-        ./machines/laptop
+        ./machines/amaterasu
 	home-manager.nixosModules.home-manager {
 	  home-manager.useGlobalPkgs = true;
 	  home-manager.useUserPackages = true;
