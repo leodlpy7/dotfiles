@@ -5,7 +5,7 @@ starship init fish | source
 set fish_greeting
 
 # set cmd aliases
-alias tree="eza --tree --group-directories-first"
+alias tree="eza --tree --group-directories-first --long --group"
 alias ls="eza"
 alias ll="eza -l"
 alias la="eza -a"
