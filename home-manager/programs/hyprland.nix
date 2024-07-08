@@ -8,6 +8,12 @@ let
   wallpaper_path = "~/dotfiles/wallpapers/anime-night-sky.png"; # set wallpaper image
 in {
   wayland.windowManager.hyprland.settings = {
+    # monitor config
+    monitor = [
+      "eDP-1,preferred,auto,auto"
+      "HDMI-A-1,preferred,auto,auto,mirror,eDP-1"
+    ];
+
     input = {
       kb_layout = "de";
       follow_mouse = 1;
