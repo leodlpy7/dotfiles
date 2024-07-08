@@ -15,6 +15,7 @@ This is the nixos configuration for my systems. I am using a flake to manage mul
   - [x] starship
   - [ ] kitty
   - [x] waybar
+  - [ ] rofi
 - [x] restructure nix configuration
 - [x] put background into dotfiles
 - [x] swaylock/swayidle to hyprlock
@@ -93,4 +94,63 @@ The background wallpaper is now inside the configuration, but unfortunately, `gr
 | `FN F7`                   | decrease volume                              |
 | `FN F8`                   | increase volume                              |
 | `FN F9`                   | toggle mute audio                            |
+
+## Structure of nix configuration
+
+```bash
+.
+├── config
+│  ├── fish
+│  │  ├── functions
+│  │  │  └── fish_greeting.fish
+│  │  └── config.fish
+│  ├── hypr
+│  │  ├── binds.conf
+│  │  ├── hypridle.conf
+│  │  ├── hyprland.conf
+│  │  ├── hyprlock.conf
+│  │  ├── hyprpaper.conf
+│  │  └── workspaces.conf
+│  ├── kitty
+│  │  └── kitty.conf
+│  └── rofi
+│     ├── themes
+│     │  └── catppuccin-macchiato.rasi
+│     └── config.rasi
+├── home-manager
+│  ├── programs
+│  │  ├── hyprland.nix
+│  │  ├── hyprlock.nix
+│  │  └── starship.nix
+│  ├── services
+│  │  ├── hypridle.nix
+│  │  └── hyprpaper.nix
+│  ├── home.nix
+│  └── waybar.nix
+├── keys
+│  ├── hosts
+│  │  └── host-ssh-key.asc
+│  └── users
+│     └── id_rsa.gpg
+├── machines
+│  ├── amaterasu
+│  │  ├── default.nix
+│  │  └── hardware-configuration.nix
+│  └── share
+│     ├── hyprland.nix
+│     ├── programs.nix
+│     ├── security.nix
+│     ├── services.nix
+│     ├── vars.nix
+│     └── wifi.nix
+├── secrets
+│  └── wifi
+├── wallpapers
+│  ├── anime-night-sky.png
+│  ├── digital-forrest-aurora.png
+│  └── digital_forrest.jpg
+├── flake.lock
+├── flake.nix
+└── README.md
+```
 
