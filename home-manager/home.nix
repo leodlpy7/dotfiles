@@ -63,12 +63,6 @@
 
   # config files
   home.file = {
-    # hyprland config
-    ".config/hypr" = {
-      source = ../config/hypr;
-      recursive = true;
-    };
-
     # kitty config
     ".config/kitty".source = ../config/kitty;
 
