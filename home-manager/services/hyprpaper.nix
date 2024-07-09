@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  wallpaper_path = "~/dotfiles/wallpapers/anime-night-sky"; # set wallpaper image here
+  wallpaper_path = "~/dotfiles/wallpapers/anime-night-sky.png"; # set wallpaper image here
 in {
   services.hyprpaper = {
     enable = true;
@@ -10,7 +10,7 @@ in {
         "${wallpaper_path}"
       ];
 
-      wallpapers = [
+      wallpaper = [
         "eDP-1,${wallpaper_path}"
 	"HDMI-1,${wallpaper_path}"
       ];

@@ -12,10 +12,13 @@ in {
     settings = {
       # monitor config
       monitor = [
-        "eDP-1,preferred,auto,auto"
-        "HDMI-A-1,preferred,auto,auto,mirror,eDP-1"
+        "eDP-1, preferred, auto, 1"
+        "HDMI-A-1, preferred, auto, auto, mirror, eDP-1"
       ];
 
+      exec-once = "waybar & hyprpaper & hypridle";
+
+      # input
       input = {
         kb_layout = "de";
         follow_mouse = 1;
@@ -83,6 +86,17 @@ in {
         "$mainMod SHIFT, right, movewindow, r"
         "$mainMod SHIFT, up, movewindow, u"
         "$mainMod SHIFT, down, movewindow, d"
+
+	"$mainMod SHIFT, 1, movetoworkspace, 1"
+	"$mainMod SHIFT, 2, movetoworkspace, 2"
+	"$mainMod SHIFT, 3, movetoworkspace, 3"
+	"$mainMod SHIFT, 4, movetoworkspace, 4"
+	"$mainMod SHIFT, 5, movetoworkspace, 5"
+	"$mainMod SHIFT, 6, movetoworkspace, 6"
+	"$mainMod SHIFT, 7, movetoworkspace, 7"
+	"$mainMod SHIFT, 8, movetoworkspace, 8"
+	"$mainMod SHIFT, 9, movetoworkspace, 9"
+	"$mainMod SHIFT, 0, movetoworkspace, 10"
 
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
