@@ -104,13 +104,6 @@ The background wallpaper is now inside the configuration, but unfortunately, `gr
 │  │  ├── functions
 │  │  │  └── fish_greeting.fish
 │  │  └── config.fish
-│  ├── hypr
-│  │  ├── binds.conf
-│  │  ├── hypridle.conf
-│  │  ├── hyprland.conf
-│  │  ├── hyprlock.conf
-│  │  ├── hyprpaper.conf
-│  │  └── workspaces.conf
 │  ├── kitty
 │  │  └── kitty.conf
 │  └── rofi
