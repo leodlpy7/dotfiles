@@ -9,6 +9,7 @@
   imports = [
     ./waybar.nix
     ./programs/starship.nix
+    ./programs/wlogout.nix
 
     ./programs/hyprland.nix
     ./programs/hyprlock.nix
@@ -24,6 +25,7 @@
     pkgs.noto-fonts
     pkgs.noto-fonts-emoji
     (pkgs.nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+    pkgs.xournalpp
   ];
 
   # neovim
