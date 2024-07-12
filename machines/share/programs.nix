@@ -45,7 +45,12 @@
     (python312.withPackages (python-pkgs: [python-pkgs.requests]))
     texliveFull
     spotify
-    wlogout
+
+    wlroots
+    waylogout
+    swayidle
+    swaylock-effects
+
     dracula-theme
     nix-output-monitor
     btop

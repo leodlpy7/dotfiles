@@ -45,7 +45,7 @@ in {
         # next to come: playerctl with back/play/pause/forward and artist/title
         "pulseaudio"
         "pulseaudio#microphone"
-	"backlight"
+	    "backlight"
         "tray"
       ];
       modules-center = [
@@ -53,10 +53,10 @@ in {
       ];
       modules-right = [
         "network"
-	"battery"
-	"cpu"
-	"temperature"
-	"memory"
+    	"battery"
+	    "cpu"
+	    "temperature"
+	    "memory"
         "clock"
       ];
       # add music player settings later
@@ -170,7 +170,8 @@ in {
       clock = {
         format = " {:%R  %d.%m.}";
         tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-	tooltip = true;
+	    tooltip = true;
+        on-clock = "echo time";
       };
     };
     # styling

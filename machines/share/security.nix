@@ -16,8 +16,8 @@
     pinentryPackage = pkgs.pinentry-qt;
   };
 
-  # important to allow hyprlock to verify pwd
-  security.pam.services.hyprlock = {
+  # important to allow swaylock to verify pwd
+  security.pam.services.swaylock = {
     text = ''
       auth sufficient pam_fprintd.so
       auth include login

@@ -1,7 +1,9 @@
 
 # dotfiles - NixOS configuration
 
-This is the nixos configuration for my systems. I am using a flake to manage multiple devices, but by now, there is only my laptop with hostname `amaterasu` registered.
+This is the nixos configuration for my systems. I am using a flake to manage
+multiple devices, but by now, there is only my laptop with hostname `amaterasu`
+registered.
 
 ## ToDo's
 
@@ -15,12 +17,14 @@ This is the nixos configuration for my systems. I am using a flake to manage mul
   - [ ] uptime module
 - [ ] config files to nix config
   - [x] hyprland
-  - [ ] fish
+  - [x] fish
   - [x] starship
-  - [ ] kitty
+  - [x] kitty
   - [x] waybar
   - [ ] rofi
   - [ ] firefox
+  - [ ] swayidle
+  - [ ] swaylock
 - [x] restructure nix configuration
 - [x] put background into dotfiles
 - [x] swaylock/swayidle to hyprlock
@@ -43,8 +47,6 @@ I use this packages (the list does not assume to be complete):
 - `greetd`
 - `hypr`
   - `hyprland`
-  - `hyprlock`
-  - `hypridle`
   - `hyprpaper`
 - `intellij`
 - `jdk`
@@ -53,13 +55,16 @@ I use this packages (the list does not assume to be complete):
 - `regreet`
 - `rofi`
 - `spotify`
+- `swayidle`
+- `swaylock`
 - `thunar`
-- `wlogout`
 - `xournalpp`
 
 ## Background wallpaper
 
-The background wallpaper is now inside the configuration, but unfortunately, `greetd` requires the background to be in `/etc/greetd/`. To use this configuration, you have to copy the background to `/etc/greetd/` to make `greetd` look pleasantly.
+The background wallpaper is now inside the configuration, but unfortunately,
+`greetd` requires the background to be in `/etc/greetd/`. To use this configuration,
+you have to copy the background to `/etc/greetd/` to make `greetd` look pleasantly.
 
 ## Keyboard shortcuts
 
@@ -109,27 +114,20 @@ The background wallpaper is now inside the configuration, but unfortunately, `gr
 ```bash
 .
 ├── config
-│  ├── fish
-│  │  ├── functions
-│  │  │  └── fish_greeting.fish
-│  │  └── config.fish
-│  ├── kitty
-│  │  └── kitty.conf
 │  └── rofi
 │     ├── themes
 │     │  └── catppuccin-macchiato.rasi
 │     └── config.rasi
 ├── home-manager
 │  ├── programs
+│  │  ├── fish.nix
 │  │  ├── hyprland.nix
-│  │  ├── hyprlock.nix
+│  │  ├── kitty.nix
 │  │  ├── starship.nix
-│  │  └── wlogout.nix
+│  │  └── waybar.nix
 │  ├── services
-│  │  ├── hypridle.nix
 │  │  └── hyprpaper.nix
-│  ├── home.nix
-│  └── waybar.nix
+│  └── home.nix
 ├── keys
 │  ├── hosts
 │  │  └── host-ssh-key.asc

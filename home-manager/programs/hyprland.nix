@@ -16,7 +16,10 @@ in {
         "HDMI-A-1, preferred, auto, auto, mirror, eDP-1"
       ];
 
-      exec-once = "waybar & hyprpaper & hypridle";
+      exec-once = [
+        "waybar & hyprpaper & hypridle"
+        "swayidle -w"
+      ];
 
       # input
       input = {
@@ -74,8 +77,8 @@ in {
         "$mainMod, T, exec, thunar"
         "$mainMod, F, fullscreen, 1"
         "$mainMod SHIFT, F, fullscreen,"
-        "$mainMod ALT, L, exec, loginctl lock-session"
-        "$mainMod, M, exec, wlogout"
+        "$mainMod ALT, L, exec, swaylock --clock --indicator --screenshots --effect-scale 0.8 --effect-vignette 0.2:0.5 --effect-blur 4x2 --datestr \"%a %e.%m.%Y\" --timestr \"%k:%M\""
+        "$mainMod, M, exec, waylogout --hide-cancel --screenshots --font=\"Baloo 2\" --fa-font=\"Font Awesome 6 Free\" --effect-blur=7x5 --indicator-thickness=20 --ring-color=888888aa --inside-color=88888866 --text-color=eaeaeaaa --line-color=00000000 --ring-selection-color=33cc33aa --inside-selection-color=33cc3366 --text-selection-color=eaeaeaaa --line-selection-color=00000000 --lock-command=\"echo 'Demo mode, lock command not configured. See man page.'\" --logout-command=\"echo 'Demo mode, logout command not configured. See man page.'\" --suspend-command=\"echo 'Demo mode, suspend command not configured. See man page.'\" --hibernate-command=\"echo 'Demo mode, hibernate command not configured. See man page.'\" --poweroff-command=\"echo 'Demo mode, poweroff command not configured. See man page.'\" --reboot-command=\"echo 'Demo mode, reboot command not configured. See man page.'\" --switch-user-command=\"echo 'Demo mode, switch-user command not configured. See man page.'\" --selection-label"
 
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
@@ -87,16 +90,16 @@ in {
         "$mainMod SHIFT, up, movewindow, u"
         "$mainMod SHIFT, down, movewindow, d"
 
-	"$mainMod SHIFT, 1, movetoworkspace, 1"
-	"$mainMod SHIFT, 2, movetoworkspace, 2"
-	"$mainMod SHIFT, 3, movetoworkspace, 3"
-	"$mainMod SHIFT, 4, movetoworkspace, 4"
-	"$mainMod SHIFT, 5, movetoworkspace, 5"
-	"$mainMod SHIFT, 6, movetoworkspace, 6"
-	"$mainMod SHIFT, 7, movetoworkspace, 7"
-	"$mainMod SHIFT, 8, movetoworkspace, 8"
-	"$mainMod SHIFT, 9, movetoworkspace, 9"
-	"$mainMod SHIFT, 0, movetoworkspace, 10"
+	    "$mainMod SHIFT, 1, movetoworkspace, 1"
+	    "$mainMod SHIFT, 2, movetoworkspace, 2"
+	    "$mainMod SHIFT, 3, movetoworkspace, 3"
+	    "$mainMod SHIFT, 4, movetoworkspace, 4"
+	    "$mainMod SHIFT, 5, movetoworkspace, 5"
+	    "$mainMod SHIFT, 6, movetoworkspace, 6"
+	    "$mainMod SHIFT, 7, movetoworkspace, 7"
+	    "$mainMod SHIFT, 8, movetoworkspace, 8"
+	    "$mainMod SHIFT, 9, movetoworkspace, 9"
+	    "$mainMod SHIFT, 0, movetoworkspace, 10"
 
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"

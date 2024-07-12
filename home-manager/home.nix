@@ -7,13 +7,12 @@
 
   # import other config files
   imports = [
-    ./waybar.nix
+    ./programs/waybar.nix
+    ./programs/fish.nix
+    ./programs/kitty.nix
     ./programs/starship.nix
-    ./programs/wlogout.nix
 
     ./programs/hyprland.nix
-    ./programs/hyprlock.nix
-    ./services/hypridle.nix
     ./services/hyprpaper.nix
   ];
 
@@ -65,15 +64,6 @@
 
   # config files
   home.file = {
-    # kitty config
-    ".config/kitty".source = ../config/kitty;
-
-    # fish config
-    ".config/fish" = {
-      source = ../config/fish;
-      recursive = true;
-    };
-
     # rofi config
     ".config/rofi" = {
       source = ../config/rofi;
