@@ -7,11 +7,12 @@
     # define aliases I use
     shellAliases = {
       # dir / file related
-      tree = "eza --tree --group-directories-first --long --group";
-      ls = "eza";
-      ll = "eza -l";
-      la = "eza -a";
-      lla = "eza -la --group";
+      tree = "eza --tree --group-directories-first --long --group --icons";
+      gittree = "eza --tree -a --group-directories-first --long --group --git-ignore --icons";
+      ls = "eza --icons";
+      ll = "eza -l --icons";
+      la = "eza -a --icons";
+      lla = "eza -la --group --icons";
       # editor related
       vim = "nvim";
       vi = "nvim";
