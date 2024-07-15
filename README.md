@@ -55,8 +55,9 @@ I use this packages (the list does not assume to be complete):
 - `regreet`
 - `rofi`
 - `spotify`
-- `swayidle`
-- `swaylock`
+- `sway`
+  - `swayidle`
+  - `swaylock`
 - `thunar`
 - `xournalpp`
 
@@ -150,8 +151,9 @@ you have to copy the background to `/etc/greetd/` to make `greetd` look pleasant
 │  ├── anime-night-sky.png
 │  ├── digital-forrest-aurora.png
 │  └── digital_forrest.jpg
+├── .gitignore
+├── .sops.yaml
 ├── flake.lock
 ├── flake.nix
 └── README.md
 ```
-
