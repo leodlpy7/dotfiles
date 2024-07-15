@@ -10,28 +10,18 @@ registered.
 - [ ] troubleshoot and fix bluetooth problems
 - [ ] modify waybar config
   - [ ] add music player
-  - [x] change to nix
-  - [x] change appearance
   - [ ] add custom mako module
   - [ ] weather script and module
   - [ ] uptime module
 - [ ] config files to nix config
-  - [x] hyprland
-  - [x] fish
-  - [x] starship
-  - [x] kitty
-  - [x] waybar
   - [ ] rofi
   - [ ] firefox
-  - [ ] swayidle
-  - [ ] swaylock
-- [x] restructure nix configuration
-- [x] put background into dotfiles
+  - [x] swayidle
+  - [x] swaylock
 - [x] swaylock/swayidle to hyprlock
-- [x] gtk config
 - [ ] qt config
 - [ ] add mako notifier
-- [ ] fix issues within wlogout config
+- [ ] get waylogout to work
 
 ## Packages
 
@@ -125,9 +115,11 @@ you have to copy the background to `/etc/greetd/` to make `greetd` look pleasant
 │  │  ├── hyprland.nix
 │  │  ├── kitty.nix
 │  │  ├── starship.nix
+│  │  ├── swaylock.nix
 │  │  └── waybar.nix
 │  ├── services
-│  │  └── hyprpaper.nix
+│  │  ├── hyprpaper.nix
+│  │  └── swayidle.nix
 │  └── home.nix
 ├── keys
 │  ├── hosts

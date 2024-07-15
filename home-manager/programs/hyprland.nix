@@ -77,7 +77,7 @@ in {
         "$mainMod, T, exec, thunar"
         "$mainMod, F, fullscreen, 1"
         "$mainMod SHIFT, F, fullscreen,"
-        "$mainMod ALT, L, exec, swaylock --clock --indicator --screenshots --effect-scale 0.8 --effect-vignette 0.2:0.5 --effect-blur 4x2 --datestr \"%a %e.%m.%Y\" --timestr \"%k:%M\""
+        "$mainMod ALT, L, exec, ${pkgs.swaylock-effects}/bin/swaylock -C $HOME/.config/swaylock/config"
         "$mainMod, M, exec, waylogout --hide-cancel --screenshots --font=\"Baloo 2\" --fa-font=\"Font Awesome 6 Free\" --effect-blur=7x5 --indicator-thickness=20 --ring-color=888888aa --inside-color=88888866 --text-color=eaeaeaaa --line-color=00000000 --ring-selection-color=33cc33aa --inside-selection-color=33cc3366 --text-selection-color=eaeaeaaa --line-selection-color=00000000 --lock-command=\"echo 'Demo mode, lock command not configured. See man page.'\" --logout-command=\"echo 'Demo mode, logout command not configured. See man page.'\" --suspend-command=\"echo 'Demo mode, suspend command not configured. See man page.'\" --hibernate-command=\"echo 'Demo mode, hibernate command not configured. See man page.'\" --poweroff-command=\"echo 'Demo mode, poweroff command not configured. See man page.'\" --reboot-command=\"echo 'Demo mode, reboot command not configured. See man page.'\" --switch-user-command=\"echo 'Demo mode, switch-user command not configured. See man page.'\" --selection-label"
 
         "$mainMod, left, movefocus, l"

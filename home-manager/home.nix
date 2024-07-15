@@ -14,6 +14,9 @@
 
     ./programs/hyprland.nix
     ./services/hyprpaper.nix
+
+    ./programs/swaylock.nix
+    ./services/swayidle.nix
   ];
 
   # home packages
