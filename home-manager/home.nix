@@ -2,8 +2,8 @@
 
 {
   home.stateVersion = "18.09";
-  home.username = "leo";
-  home.homeDirectory = "/home/leo";
+  home.username = "lucysue";
+  home.homeDirectory = "/home/lucysue";
 
   # import other config files
   imports = [

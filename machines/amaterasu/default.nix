@@ -37,9 +37,13 @@
   console.keyMap = "de";
 
   # user config
-  users.users.leo = {
-    isNormalUser = true;  
-    extraGroups = [ "wheel" "networkmanager" "audio" ];
+  users.users.lucysue = {
+    isNormalUser = true;
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "audio"
+    ];
     shell = pkgs.fish;
   };
 
