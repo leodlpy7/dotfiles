@@ -7,6 +7,7 @@
 
   # import other config files
   imports = [
+    ./programs/fastfetch.nix
     ./programs/waybar.nix
     ./programs/fish.nix
     ./programs/kitty.nix
