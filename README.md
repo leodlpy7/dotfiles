@@ -1,4 +1,8 @@
 
+⚠️ This repository was archived because I started working on another configuration
+for my system, it is likely that I will remove the repository as soon as the new
+configuration is working. ⚠️
+
 # dotfiles - NixOS configuration
 
 This is the nixos configuration for my systems. I am using a flake to manage
