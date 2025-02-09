@@ -15,12 +15,12 @@ in {
     settings = {
       # monitor config
       monitor = [
-        "eDP-1, preferred, auto, 1"
+        "eDP-1, preferred, auto, 1, transform, 0"
         "HDMI-A-1, preferred, auto, auto"
       ];
 
       exec-once = [
-        "waybar & hyprpaper"
+        "waybar & hyprpaper & iio-hyprland"
         "swayidle -w"
       ];
 

@@ -55,6 +55,9 @@
   # bluetooth
   hardware.bluetooth.enable = true;
 
+  # screen rotation
+  hardware.sensor.iio.enable = true;
+
   # use hardware acceleration with gpu
   hardware.graphics.extraPackages = with pkgs; [
     intel-ocl

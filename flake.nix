@@ -7,12 +7,14 @@
     flake-utils.url = "github:numtide/flake-utils";
     sops-nix.url = "github:Mic92/sops-nix";
     nix-easyroam.url = "github:0x5a4/nix-easyroam";
+    iio-hyprland.url = "github:JeanSchoeller/iio-hyprland";
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, flake-utils, sops-nix, nix-easyroam }: {
+  outputs = inputs @ { self, nixpkgs, home-manager, flake-utils, sops-nix, nix-easyroam, iio-hyprland }: {
     # nixos config for my laptop
     nixosConfigurations.amaterasu = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = {inherit inputs;};
       modules = [
         sops-nix.nixosModules.sops
         nix-easyroam.nixosModules.nix-easyroam

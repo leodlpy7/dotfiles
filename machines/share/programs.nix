@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   config,
   ...
@@ -50,6 +51,9 @@
     spotify
     dbus
     tlp
+
+    inputs.iio-hyprland.packages.${pkgs.system}.default
+    jq
 
     loupe
     nautilus
