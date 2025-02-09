@@ -1,0 +1,9 @@
+keys:
+  - &lucysue_gpg 64225863A5F7C0D3535AE199A768110D27AD340D
+  - &laptop 82387bf7cc73df6ea1718f4ea86a337947cb35e9
+creation_rules:
+  - path_regex: resources/secrets/.*
+    key_groups:
+    - pgp:
+      - *lucysue_gpg
+      - *laptop
