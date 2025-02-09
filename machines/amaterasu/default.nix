@@ -9,6 +9,7 @@
     ../share/programs.nix
     ../share/security.nix
     ../share/services.nix
+    ../share/stylix.nix
     ../share/vars.nix
     ../share/wifi.nix
     

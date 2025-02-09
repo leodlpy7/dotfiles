@@ -29,19 +29,9 @@
   programs.regreet = {
     enable = true;
     settings = {
-      background = {
-        path = "/etc/greetd/background.jpg";
-        fit = "Fill";
-      };
+      background.fit = lib.mkForce "Fill";
 
       env = {};
-
-      GTK = {
-        cursor_theme_name = lib.mkForce "Dracula";
-        font_name = "Cantarell 16";
-        icon_theme_name = lib.mkForce "Dracula";
-        theme_name = lib.mkForce "Dracula";
-      };
     };
   };
 

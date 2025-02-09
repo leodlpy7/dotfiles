@@ -6,10 +6,7 @@
   imports = [
     ./desktop/hypr/config.nix
     ./desktop/hypr/wallpaper.nix
-
     ./desktop/waybar/config.nix
-
-    ./desktop/darkmode.nix
 
     ./services/default.nix
     ./services/fastfetch/fastfetch.nix

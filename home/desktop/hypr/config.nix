@@ -36,8 +36,6 @@ in {
         gaps_in = 4;
         gaps_out = 8;
         border_size = 2;
-        "col.active_border" = "rgba(${active_color}${opacity})";
-        "col.inactive_border" = "rgba(${inactive_color}${opacity})";
         layout = "dwindle";
         allow_tearing = false;
 	      resize_on_border = true;

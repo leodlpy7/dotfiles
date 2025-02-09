@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   config,
   ...
@@ -122,7 +123,7 @@ in {
   programs.waybar = {
     enable = true;
     systemd.enable = true;
-    style = ./style.css;
+    style = lib.mkForce ./style.css;
 
     settings.mainBar = {
       include = sharedModules;
