@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ../share/bluetooth.nix
     ../share/fonts.nix
     ../share/printing.nix
     ../share/programs.nix
@@ -52,9 +53,6 @@
     ];
     shell = pkgs.fish;
   };
-
-  # bluetooth
-  hardware.bluetooth.enable = true;
 
   # screen rotation
   hardware.sensor.iio.enable = true;
