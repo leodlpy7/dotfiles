@@ -21,7 +21,7 @@
         nix-easyroam.nixosModules.nix-easyroam
         stylix.nixosModules.stylix
         ./machines/amaterasu
-	      home-manager.nixosModules.home-manager {
+        home-manager.nixosModules.home-manager {
 	        home-manager.useGlobalPkgs = true;
 	        home-manager.useUserPackages = true;
 	        home-manager.users.lucysue = import ./home/home.nix;

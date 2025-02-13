@@ -13,24 +13,25 @@
   networking.wireless = {
     enable = true;
     userControlled.enable = true;
-    secretsFile = "/run/secrets/wifi";
+    secretsFile = config.sops.secrets.wifi.path;
+    fallbackToWPA2 = false;
     # networks go here
     networks = {
       # hotspot
       Andromeda = {
-        psk = "ext:ANDROMEDA_PSK";
+        pskRaw = "ext:ANDROMEDA_PSK";
         priority = 1;
       };
 
       # wifi fscs hhu
       HHUD-Y = {
-        psk = "ext:HHUDY_PSK";
+        pskRaw = "ext:HHUDY_PSK";
         priority = 3;
       };
 
       # wifi fsphy hhu
       LambdaAufDemEFeld = {
-        psk = "ext:LAMBDA_AUF_DEM_E_FELD_PSK";
+        pskRaw = "ext:LAMBDA_AUF_DEM_E_FELD_PSK";
         priority = 3;
       };
 
@@ -41,12 +42,12 @@
 
       # at home
       "to huus" = {
-        psk = "@TOHUUS_PSK@";
+        pskRaw = "ext:TOHUUS_PSK";
         priority = 5;
       };
 
       "LevelOne-2.4G" = {
-        psk = "ext:LEVELONE_2_4G_PSK";
+        pskRaw = "ext:LEVELONE_2_4G_PSK";
         priority = 5;
       };
     };
