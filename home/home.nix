@@ -13,6 +13,7 @@
     ./services/fish.nix
     ./services/git.nix
     ./services/kitty.nix
+    ./services/minecraft.nix
     ./services/starship.nix
     ./services/swayidle.nix
     ./services/swaylock.nix
