@@ -54,9 +54,14 @@
   };
 
   # fucking easyroam config
+  sops.secrets.easyroam = {
+    format = "binary";
+    sopsFile = ../../resources/secrets/easyroam.p12;
+  };
+
   services.easyroam = {
     enable = true;
-    pkcsFile = ../../resources/secrets/easyroam.p12;
+    pkcsFile = config.sops.secrets.easyroam.path;
     wpa-supplicant = {
       enable = true;
       extraConfig = ''
