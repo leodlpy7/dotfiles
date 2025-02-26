@@ -1,7 +1,7 @@
 {
-  inputs,
   pkgs,
   config,
+  inputs,
   ...
 }: {
   # allow unfree software in system config
@@ -38,7 +38,6 @@
     neovim
     wget
     kitty
-    rofi-wayland
     waybar
     git
     eza
@@ -51,6 +50,8 @@
     spotify
     dbus
     tlp
+    signal-desktop
+    thunderbird
 
     inputs.iio-hyprland.packages.${pkgs.system}.default
     jq
