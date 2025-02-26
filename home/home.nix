@@ -9,7 +9,11 @@
     ./desktop/waybar/config.nix
 
     ./services/default.nix
+
     ./services/fastfetch/fastfetch.nix
+    ./services/rofi/config.nix
+    
+    ./services/btop.nix
     ./services/fish.nix
     ./services/git.nix
     ./services/kitty.nix
@@ -26,4 +30,5 @@
 
   # home manager
   programs.home-manager.enable = true;
+  xdg.stateHome = /home/lucysue/.local/state;
 }
