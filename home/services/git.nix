@@ -16,6 +16,7 @@
     };
 
     extraConfig = {
+      core.editor = "nvim";
       pull.rebase = true;
       push.followTags = true;
       merge.conflictstyle = "diff3";
