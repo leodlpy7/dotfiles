@@ -9,9 +9,10 @@
     nix-easyroam.url = "github:0x5a4/nix-easyroam";
     iio-hyprland.url = "github:JeanSchoeller/iio-hyprland";
     stylix.url = "github:danth/stylix";
+    nixvim.url = "github:nix-community/nixvim";
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, flake-utils, sops-nix, nix-easyroam, iio-hyprland, stylix }: {
+  outputs = inputs @ { self, nixpkgs, home-manager, flake-utils, sops-nix, nix-easyroam, iio-hyprland, stylix, nixvim }: {
     # nixos config for my laptop
     nixosConfigurations.amaterasu = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -22,10 +23,13 @@
         stylix.nixosModules.stylix
         ./machines/amaterasu
         home-manager.nixosModules.home-manager {
-	        home-manager.useGlobalPkgs = true;
-	        home-manager.useUserPackages = true;
-	        home-manager.users.lucysue = import ./home/home.nix;
-	      }
+	  home-manager = {
+	    useGlobalPkgs = true;
+	    useUserPackages = true;
+	    users.lucysue = import ./home/home.nix;
+	    sharedModules = [ inputs.nixvim.homeManagerModules.nixvim ];
+	  };
+	}
       ];
     };
     # developer shell stuff

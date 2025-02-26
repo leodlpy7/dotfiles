@@ -34,8 +34,6 @@
 
   # Packages installed to the system profile
   environment.systemPackages = with pkgs; [
-    vim
-    neovim
     wget
     kitty
     waybar
