@@ -9,7 +9,7 @@
 
   stylix = {
     enable = true;
-    image = ../../resources/wallpapers/simulation_bullet_lightning.jpg;
+    image = ../../resources/wallpapers/flowers.jpg;
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
   };
