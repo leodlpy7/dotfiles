@@ -64,7 +64,7 @@ let
         elif [[ $1 == '--suspend' ]]; then
           systemctl suspend
         elif [[ $1 == '--logout' ]]; then
-          ${pkgs.hyprland}/bin/hyprctl dispatch exit
+          loginctl terminate-user ${config.home.username}
         fi
       else
         exit 0
