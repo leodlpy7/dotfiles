@@ -3,12 +3,7 @@
   inputs,
   config,
   ...
-}:
-let
-  opacity = "dd";
-  active_color = "66ffff";
-  inactive_color = "595959";
-in {
+}: {
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -20,7 +15,7 @@ in {
       ];
 
       exec-once = [
-        "waybar & hyprpaper & iio-hyprland"
+        "hyprpaper & iio-hyprland"
         "swayidle -w"
       ];
 
@@ -38,7 +33,7 @@ in {
         border_size = 2;
         layout = "dwindle";
         allow_tearing = false;
-	      resize_on_border = true;
+	resize_on_border = true;
       };
 
       decoration = {
@@ -63,18 +58,17 @@ in {
 
       bind = [
         "$mainMod, Return, exec, ${pkgs.kitty}/bin/kitty"
+        "$mainMod, W, exec, ${pkgs.firefox}/bin/firefox"
+        "$mainMod, R, exec, rofi -show drun"
+        "$mainMod, B, exec, killall rofi-bluetooth || ${pkgs.rofi-bluetooth}/bin/rofi-bluetooth"
         "$mainMod, Backspace, killactive,"
         "$mainMod, V, togglefloating,"
-        "$mainMod, R, exec, rofi -show drun"
         "$mainMod, P, pseudo," # dwindle
         "$mainMod, J, togglesplit," # dwindle
-        "$mainMod, W, exec, ${pkgs.firefox}/bin/firefox"
-        "$mainMod, T, exec, thunar"
         "$mainMod, F, fullscreen, 1"
         "$mainMod SHIFT, F, fullscreen,"
         "$mainMod ALT, L, exec, ${pkgs.swaylock-effects}/bin/swaylock -C $HOME/.config/swaylock/config"
-        "$mainMod, B, exec, killall rofi-bluetooth || ${pkgs.rofi-bluetooth}/bin/rofi-bluetooth"
-        "$mainMod, SPACE, togglespecialworkspace, term"
+        "$mainMod ALT, M, exec, powermenu.sh"
 
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
@@ -85,17 +79,17 @@ in {
         "$mainMod SHIFT, right, movewindow, r"
         "$mainMod SHIFT, up, movewindow, u"
         "$mainMod SHIFT, down, movewindow, d"
-
-	      "$mainMod SHIFT, 1, movetoworkspace, 1"
-	      "$mainMod SHIFT, 2, movetoworkspace, 2"
-	      "$mainMod SHIFT, 3, movetoworkspace, 3"
-	      "$mainMod SHIFT, 4, movetoworkspace, 4"
-	      "$mainMod SHIFT, 5, movetoworkspace, 5"
-	      "$mainMod SHIFT, 6, movetoworkspace, 6"
-	      "$mainMod SHIFT, 7, movetoworkspace, 7"
-	      "$mainMod SHIFT, 8, movetoworkspace, 8"
-	      "$mainMod SHIFT, 9, movetoworkspace, 9"
-	      "$mainMod SHIFT, 0, movetoworkspace, 10"
+        
+        "$mainMod SHIFT, 1, movetoworkspace, 1"
+        "$mainMod SHIFT, 2, movetoworkspace, 2"
+        "$mainMod SHIFT, 3, movetoworkspace, 3"
+        "$mainMod SHIFT, 4, movetoworkspace, 4"
+        "$mainMod SHIFT, 5, movetoworkspace, 5"
+        "$mainMod SHIFT, 6, movetoworkspace, 6"
+        "$mainMod SHIFT, 7, movetoworkspace, 7"
+        "$mainMod SHIFT, 8, movetoworkspace, 8"
+        "$mainMod SHIFT, 9, movetoworkspace, 9"
+        "$mainMod SHIFT, 0, movetoworkspace, 10"
 
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"

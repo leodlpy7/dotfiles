@@ -4,7 +4,7 @@
   ...
 }:
 let
-  wallpaper_path = "~/.dotfiles/resources/wallpapers/simulation_bullet_lightning.jpg"; # set wallpaper image here
+  wallpaper_path = "~/.dotfiles/resources/wallpapers/flowers.jpg"; # set wallpaper image here
 in {
   services.hyprpaper = {
     enable = true;
