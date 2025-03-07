@@ -1,6 +1,8 @@
 {
   pkgs,
   config,
+  inputs,
+  system,
   ...
 }: {
   home.packages = with pkgs; [
@@ -21,5 +23,6 @@
     element-desktop
     unzip
     dconf
+    inputs.zenbrowser.packages."x86_64-linux".default
   ];
 }
