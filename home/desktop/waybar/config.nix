@@ -15,40 +15,87 @@ let
 
   sharedModules = pkgs.writeText "waybar-modules.json" (
     builtins.toJSON {
+      
+      backlight = {
+	device = "intel_backlight";
+	format = "{icon} {percent}%";
+	format-icons = [
+	  ""
+	  ""
+	];
+	min-length = 6;
+	on-scroll-down = "brightnessctl set 1%-";
+	on-scroll-up = "brightnessctl set 1%+";
+      };
+    
+      battery = {
+	format = "{icon} {capacity}%";
+	format-alt = "{time} {icon}";
+	format-charging = " {capacity}%";
+	format-icons = [
+	  ""
+	  ""
+	  ""
+	  ""
+	  ""
+	];
+	format-plugged = " {capacity}%";
+	states = {
+	  critical = 20;
+	  good = 95;
+	  warning = 30;
+	};
+      };
+    
       clock = {
-        format = "  {:%R %d/%m}";
+	format = "  {:%R %d/%m}";
+	tooltip-format = "";
       };
-      
-      "hyprland/workspaces" = {
-        all-outputs = true;
-        format = "{name}";
-        sort-by-number = true;
-        active-only = false;
-      };
-      
-      "hyprland/submap" = {
-        tooltip = false;
-        on-click = "${pkgs.hyprland}/bin/hyprctl dispatch submap reset";
-      };
-      
+    
       cpu = {
-        interval = 5;
-        format = "";
-        states = {
+	format = " {usage:>2}%";
+	interval = 5;
+	states = {
           medium = 20;
           high = 60;
         };
       };
       
-      memory = {
-        interval = 10;
-        format = "";
-        states = {
-          medium = 40;
-          high = 80;
-        };
+      "hyprland/workspaces" = {
+	format = "{icon}";
+	on-click = "activate";
+	format-icons = {
+	  "1" = "1";
+	  "2" = "2";
+	  "3" = "3";
+	  "4" = "4";
+	  "5" = "5";
+	  "urgent" = "";
+	  "active" = "";
+	  "default" = "";
+	};
+	sort-by-number = true;
+	active-only = false;
+	all-outputs = false;
+      };
+    
+      network = {
+	format = "{ifname}";
+	format-disconnected = "offline";
+	format-ethernet = " 󰈀 ";
+	format-wifi = " {essid}";
       };
       
+      bluetooth = {
+        format = "";
+        format-disabled = "󰂲";
+        format-connected = " {num_connections} connected";
+        tooltip-format = "{controller_alias}: {controller_address}";
+        tooltip-format-connected = "{controller_alias}: {controller_address}\n\n{device_enumerate}";
+        tooltip-format-enumerate-connected = "{device_alias}: {device_address}";
+        on-click = "${pkgs.tlp}/bin/bluetooth toggle";
+      };
+
       wireplumber = {
         tooltip = false;
         format = "{icon} {volume}%";
@@ -64,50 +111,15 @@ let
         };
       };
       
-      battery = {
-        format = "{capacity}% {icon}";
-        format-charging = "󱐋 {capacity}% {icon}";
-        format-icons = [
-          ""
-          ""
-          ""
-          ""
-          ""
-        ];
-        states = {
-          low = 20;
-        };
-      };
-      
-      network = {
-        format = "{ifname}";
-        format-wifi = "{essid} ({signalStrength}%) ";
-        format-ethernet = " 󰈁 ";
-        format-disconnected = "";
-      };
-      
-      bluetooth = {
-        format = "";
-        format-disabled = "󰂲";
-        format-connected = " {num_connections} connected";
-        tooltip-format = "{controller_alias}: {controller_address}";
-        tooltip-format-connected = "{controller_alias}: {controller_address}\n\n{device_enumerate}";
-        tooltip-format-enumerate-connected = "{device_alias}: {device_address}";
-        on-click = "${pkgs.tlp}/bin/bluetooth toggle";
-      };
-      
-      backlight = {
-        tooltip = false;
-        device = "intel_backlight";
-        format = "{percent}% {icon}";
-        format-icons = [
-          ""
-          ""
-        ];
-      };
-      
-      user = {
-        format = "🐢 {work_H}:{work_M}";
+      temperature = {
+	critical-threshold = 80;
+	format = " {temperatureC}°C";
+	format-critical = " {temperatureC}°C";
+	hwmon-path = [
+	  "/sys/class/hwmon/hwmon2/temp1_input"
+	  "/sys/class/thermal/thermal_zone0/temp"
+	];
+	thermal-zone = 2;
       };
       
       "custom/wlinhibit" = {
@@ -127,23 +139,23 @@ in {
 
     settings.mainBar = {
       include = sharedModules;
+      mod = "dock";
+      margin-top = 3;
+      modules-center = [];
       modules-left = [
-        "backlight"
-        "wireplumber"
-        "custom/wlinhibit"
-        "hyprland/workspaces"
-        "hyprland/submap"
+	"backlight"
+	"wireplumber"
+	"custom/wlinhibit"
+	"hyprland/workspaces"
       ];
       modules-right = [
-        "battery"
-        "bluetooth"
-        "network"
-        "memory"
         "cpu"
-        "user"
-        "clock"
+        "temperature"
+        "battery"
+	"bluetooth"
+	"network"
+	"clock"
       ];
-
       height = 32;
       layer = "top";
       position = "top";

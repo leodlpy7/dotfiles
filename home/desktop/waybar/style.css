@@ -1,139 +1,123 @@
-@define-color background-darker rgba(30, 31, 41, 230);
-@define-color background #282a36;
-@define-color selection #44475a;
-@define-color foreground #f8f8f2;
-@define-color comment #6272a4;
-@define-color cyan #8be9fd;
-@define-color green #50fa7b;
-@define-color orange #ffb86c;
-@define-color pink #ff79c6;
-@define-color purple #bd93f9;
-@define-color red #ff5555;
-@define-color yellow #f1fa8c;
-
 * {
-  border: none;
-  border-radius: 0;
-  font-family:
-    Symbols Nerd Font,
-    monospace;
-  font-weight: bold;
-  font-size: 14px;
-  min-height: 0;
-}
-
-/* no states */
-#clock,
-#user,
-#submap,
-#network,
-#bluetooth,
-#backlight,
-#wireplumber,
-#custom-wlinhibit,
-#battery {
-  color: @green;
-}
-
-/* standalone rounded */
-#user,
-#wireplumber,
-#clock,
-#workspaces,
-#network,
-#bluetooth,
-#battery,
-#custom-wlinhibit,
-#backlight,
-#submap {
-  border: 1px solid #181825;
-  border-radius: 10px;
-  margin-left: 4px;
-  margin-right: 4px;
-}
-
-/* left rounded */
-#memory {
-  border-left: 1px solid #181825;
-  border-top: 1px solid #181825;
-  border-bottom: 1px solid #181825;
-  border-radius: 10px 0px 0px 10px;
-  margin-left: 4px;
-}
-
-/* right rounded */
-#cpu {
-  border-right: 1px solid #181825;
-  border-top: 1px solid #181825;
-  border-bottom: 1px solid #181825;
-  border-radius: 0px 10px 10px 0px;
-  margin-right: 4px;
+    border: none;
+    border-radius: 0;
+    font-family: Symbols Nerd Font, monospace;
 }
 
 window#waybar {
-  background: 0;
+    background: rgba(21, 18, 27, 0);
+    color: #cdd6f4;
 }
 
-/* shared */
-#cpu,
-#memory,
-#workspaces,
-#submap,
-#user,
-#wireplumber,
-#custom-mako,
-#battery,
-#network,
-#bluetooth,
-#backlight,
-#custom-wlinhibit,
-#clock {
-  background: @background-darker;
-  padding: 0px 10px;
-  margin-top: 5px;
-}
-
-#cpu,
-#memory,
-#workspaces button {
-  color: @selection;
-  border: none;
-}
-
-#submap,
-#workspaces {
-  border-radius: 10px;
+tooltip {
+    background: #1e1e2e;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #11111b;
 }
 
 #workspaces button {
-  background: @background-darker;
-}
-
-#workspaces button:hover {
-  box-shadow: inherit;
-  text-shadow: inherit;
-  background: @background-darker;
-  border: @background-darker;
+    padding: 5px;
+    color: #313244;
+    margin-right: 5px;
 }
 
 #workspaces button.active {
-  color: @red;
+    color: #a6adc8;
 }
 
-#memory.medium,
-#cpu.medium {
-  color: @orange;
+#workspaces button.focused {
+    color: #a6adc8;
+    border-radius: 10px;
 }
 
-#memory.high,
-#wireplumber.high,
-#battery.low,
-#cpu.high {
-  color: @red;
+#workspaces button.urgent {
+    color: #11111b;
+    background: #a6e3a1;
+    border-radius: 10px;
 }
 
-#wireplumber.muted,
-#bluetooth.disabled,
-#custom-wlinhibit.deactivated {
-  color: @selection;
+#workspaces button:hover {
+    background: #11111b;
+    color: #cdd6f4;
+    border-radius: 10px;
+}
+
+#window,
+#clock,
+#battery,
+#wireplumber,
+#bluetooth,
+#network,
+#workspaces,
+#cpu,
+#temperature,
+#backlight {
+    background: #1e1e2e;
+    padding: 0px 10px;
+    border: 1px solid #181825;
+}
+
+#custom-wlinhibit {
+    background: #1e1e2e;
+    padding: 0px 10px;
+    border: 1px solid #181825;
+    border-radius: 0px 10px 10px 0px;
+}
+
+#workspaces {
+    background: #1e1e2e;
+    border-radius: 10px;
+    margin-left: 10px;
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
+#window {
+    border-radius: 10px;
+}
+
+#cpu {
+    border-radius: 10px 0px 0px 10px;
+    margin-left: 5px;
+    border-right: 0px;
+}
+
+#backlight {
+    border-radius: 10px 0px 0px 10px;
+    margin-left: 5px;
+    border-right: 0px;
+}
+
+#clock {
+    color: #fab387;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-right: 0px;
+}
+
+#bluetooth {
+    color: #f9e2af;
+    margin-left: 5px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+#network {
+    color: #f9e2af;
+    border-radius: 0px 10px 10px 0px;
+}
+
+#wireplumber {
+    color: #89b4fa;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#battery {
+    color: #a6e3a1;
+    border-radius: 0 10px 10px 0;
+    margin-right: 5px;
+    border-left: 0px;
 }
