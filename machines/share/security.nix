@@ -37,6 +37,12 @@
     };
   };
 
+  security.pam.services.greetd = {
+    text = ''
+      auth include login
+    '';
+  };
+
   services.greetd = {
     enable = true;
     settings = {

@@ -15,10 +15,10 @@
       session required pam_unix.so
     '';
     sudo.text = ''
-      auth required pam_unix.so
-      auth required ${pkgs.pam_u2f}/lib/security/pam_u2f.so cue
-      account required pam_unix.so
-      session required pam_unix.so
+      auth include login
+    '';
+    su.text = ''
+      auth include login
     '';
   };
 
