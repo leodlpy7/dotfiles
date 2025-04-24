@@ -3,11 +3,14 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   # security related pkgs
   environment.systemPackages = with pkgs; [
     greetd.regreet
     pinentry-qt
+    pam_u2f
+    swaylock
   ];
 
   # gpg for security
@@ -20,7 +23,6 @@
   # important to allow swaylock to verify pwd
   security.pam.services.swaylock = {
     text = ''
-      auth sufficient pam_fprintd.so
       auth include login
     '';
   };
@@ -31,28 +33,30 @@
     settings = {
       background.fit = lib.mkForce "Fill";
 
-      env = {};
+      env = { };
     };
   };
 
   services.greetd = {
     enable = true;
     settings = {
-      default_session = let
-        hyprlandConfig = builtins.toFile "hyprland.regreet.conf" ''
-          exec-once = regreet; hyprctl dispatch exit;
-          windowrulev2 = fullscreen, title:^regreet$
-          animations {
-            enabled = no
-          }
-          misc {
-            disable_hyprland_logo = yes
-            disable_splash_rendering = yes
-          }
-        '';
-      in {
-         command = "${pkgs.hyprland}/bin/Hyprland --config ${hyprlandConfig}";
-      };
+      default_session =
+        let
+          hyprlandConfig = builtins.toFile "hyprland.regreet.conf" ''
+            exec-once = regreet; hyprctl dispatch exit;
+            windowrulev2 = fullscreen, title:^regreet$
+            animations {
+              enabled = no
+            }
+            misc {
+              disable_hyprland_logo = yes
+              disable_splash_rendering = yes
+            }
+          '';
+        in
+        {
+          command = "${pkgs.hyprland}/bin/Hyprland --config ${hyprlandConfig}";
+        };
     };
   };
 }

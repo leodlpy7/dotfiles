@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   imports = [
     ../share/bluetooth.nix
     ../share/fonts.nix
@@ -13,7 +14,8 @@
     ../share/stylix.nix
     ../share/vars.nix
     ../share/wifi.nix
-    
+    ../share/yubikey.nix
+
     # never forget to load the hardware config
     ./hardware-configuration.nix
   ];
@@ -33,10 +35,10 @@
     efiSupport = true;
   };
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = ["ntfs"];
+  boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "amaterasu";
-  
+
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
