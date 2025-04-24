@@ -14,7 +14,6 @@
     ../share/stylix.nix
     ../share/vars.nix
     ../share/wifi.nix
-    ../share/yubikey.nix
 
     # never forget to load the hardware config
     ./hardware-configuration.nix

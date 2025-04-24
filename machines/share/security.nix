@@ -13,6 +13,8 @@
     swaylock
   ];
 
+  services.udev.packages = [ pkgs.yubikey-personalization ];
+
   # gpg for security
   programs.gnupg.agent = {
     enable = true;
@@ -20,12 +22,48 @@
     pinentryPackage = pkgs.pinentry-qt;
   };
 
-  # important to allow swaylock to verify pwd
-  security.pam.services.swaylock = {
-    text = ''
-      auth include login
-    '';
+  # modify pam stacks for 2fa
+  security.pam.services =
+    let
+      pamStack = ''
+        auth required pam_unix.so
+        auth required ${pkgs.pam_u2f}/lib/security/pam_u2f.so cue
+        account required pam_unix.so
+        session required pam_unix.so
+      '';
+    in
+    {
+      login.text = pamStack;
+      sudo.text = pamStack;
+      su.text = pamStack;
+      swaylock.text = ''
+        auth include login
+      '';
+      greetd.text = ''
+        auth include login
+      '';
+    };
+
+  security.pam.u2f = {
+    enable = true;
   };
+
+  security.pam.yubico = {
+    enable = true;
+    debug = true;
+    mode = "challenge-response";
+    id = [ "33038951" ];
+  };
+
+  # lock session if yubikey is unplugged
+  services.udev.extraRules = ''
+    ACTION=="remove",\
+     ENV{ID_BUS}=="usb",\
+     ENV{ID_MODEL_ID}=="0407",\
+     ENV{ID_VENDOR_ID}=="1050",\
+     ENV{ID_VENDOR}=="Yubico",\
+     RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
+  '';
 
   # greetd
   programs.regreet = {
@@ -35,12 +73,6 @@
 
       env = { };
     };
-  };
-
-  security.pam.services.greetd = {
-    text = ''
-      auth include login
-    '';
   };
 
   services.greetd = {
