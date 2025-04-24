@@ -15,7 +15,6 @@ let
 
   sharedModules = pkgs.writeText "waybar-modules.json" (
     builtins.toJSON {
-      
       backlight = {
 	device = "intel_backlight";
 	format = "{icon} {percent}%";
@@ -72,7 +71,6 @@ let
 	  "5" = "5";
 	  "urgent" = "";
 	  "active" = "";
-	  "default" = "";
 	};
 	sort-by-number = true;
 	active-only = false;
@@ -156,7 +154,7 @@ in {
 	"network"
 	"clock"
       ];
-      height = 32;
+      height = 10;
       layer = "top";
       position = "top";
     };
