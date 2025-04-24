@@ -20,7 +20,6 @@
     ./services/git.nix
     ./services/kitty.nix
     ./services/minecraft.nix
-    ./services/nixvim.nix
     ./services/starship.nix
     ./services/swayidle.nix
     ./services/swaylock.nix

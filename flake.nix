@@ -13,37 +13,62 @@
     zenbrowser.url = "github:0xc000022070/zen-browser-flake";
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, flake-utils, sops-nix, nix-easyroam, iio-hyprland, stylix, nixvim, zenbrowser }: {
-    # nixos config for my laptop
-    nixosConfigurations.amaterasu = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-      modules = [
-        sops-nix.nixosModules.sops
-        nix-easyroam.nixosModules.nix-easyroam
-        stylix.nixosModules.stylix
-        ./machines/amaterasu
-        home-manager.nixosModules.home-manager {
-	  home-manager = {
-	    useGlobalPkgs = true;
-	    useUserPackages = true;
-	    users.lucysue = import ./home/home.nix;
-	    extraSpecialArgs = { inherit inputs; };
-	    sharedModules = [ inputs.nixvim.homeManagerModules.nixvim ];
-	  };
-	}
-      ];
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      flake-utils,
+      sops-nix,
+      nix-easyroam,
+      iio-hyprland,
+      stylix,
+      nixvim,
+      zenbrowser,
+      ...
+    }:
+    let
+      nixvimFor = pkgs: {
+        inherit pkgs;
+        module = import ./mods/nixvim;
+      };
+      inherit (self) outputs;
+    in
+    {
+      # nixos config for my laptop
+      nixosConfigurations.amaterasu = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs outputs; };
+        modules = [
+          sops-nix.nixosModules.sops
+          nix-easyroam.nixosModules.nix-easyroam
+          stylix.nixosModules.stylix
+          ./machines/amaterasu
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useUserPackages = true;
+	      useGlobalPkgs= true;
+              users.lucysue = import ./home/home.nix;
+              extraSpecialArgs = { inherit inputs; };
+            };
+          }
+        ];
+      };
+      # developer shell stuff
+      devShells."x86_64-linux".default =
+        with import nixpkgs { system = "x86_64-linux"; };
+        mkShell {
+          sopsPGPKeyDirs = [
+            "${toString ./.}/resources/keys/hosts"
+            "${toString ./.}/resources/keys/users"
+          ];
+          nativeBuildInputs = [
+            (pkgs.callPackage sops-nix { }).sops-import-keys-hook
+          ];
+        };
+      packages.nixvim = nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule (
+        nixvimFor nixpkgs.legacyPackages.x86_64-linux
+      );
     };
-    # developer shell stuff
-    devShells."x86_64-linux".default = with import nixpkgs { system = "x86_64-linux";  };
-     mkShell {
-      sopsPGPKeyDirs = [
-        "${toString ./.}/resources/keys/hosts"
-        "${toString ./.}/resources/keys/users"
-      ];
-      nativeBuildInputs = [
-        (pkgs.callPackage sops-nix {}).sops-import-keys-hook
-      ];
-    };
-  };
 }

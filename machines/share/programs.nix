@@ -2,6 +2,7 @@
   pkgs,
   config,
   inputs,
+  outputs,
   ...
 }: {
   # allow unfree software in system config
@@ -51,6 +52,8 @@
     signal-desktop
     thunderbird
 
+    outputs.packages.nixvim
+
     inputs.iio-hyprland.packages.${pkgs.system}.default
     jq
 
@@ -71,4 +74,6 @@
     # java and intellij
     jdk
   ];
+
+  programs.hyprland.enable = true;
 }
