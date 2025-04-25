@@ -25,9 +25,11 @@
   # modify pam stacks for 2fa
   security.pam.services =
     let
+      # the expr [success=ok default=ignore] defines a fallback if the hardware key is unavailable
+      # to make the key necessary just write "required" instead
       pamStack = ''
         auth required pam_unix.so
-        auth required ${pkgs.pam_u2f}/lib/security/pam_u2f.so cue
+        auth [success=ok default=ignore] ${pkgs.pam_u2f}/lib/security/pam_u2f.so cue soft
         account required pam_unix.so
         session required pam_unix.so
       '';
