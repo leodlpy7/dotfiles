@@ -41,9 +41,6 @@
       swaylock.text = ''
         auth include login
       '';
-      greetd.text = ''
-        auth include login
-      '';
     };
 
   security.pam.u2f = {
